@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="sky-e" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#134e4a"/>
+      <stop offset="100%" stop-color="#1a5c3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky-e)"/>
+  <!-- Ground -->
+  <path d="M0 350 Q200 320 400 340 T800 330 V500 H0Z" fill="#1b4332" fill-opacity="0.6"/>
+  <!-- Trees -->
+  <g fill="#2d6a4f" fill-opacity="0.7">
+    <polygon points="100,300 130,180 160,300"/>
+    <polygon points="90,330 130,230 170,330"/>
+    <rect x="125" y="300" width="10" height="50" fill="#3b3b25" fill-opacity="0.5"/>
+    <polygon points="250,310 280,200 310,310"/>
+    <polygon points="240,340 280,250 320,340"/>
+    <rect x="275" y="310" width="10" height="40" fill="#3b3b25" fill-opacity="0.5"/>
+    <polygon points="620,290 650,170 680,290"/>
+    <polygon points="610,320 650,220 690,320"/>
+    <rect x="645" y="290" width="10" height="50" fill="#3b3b25" fill-opacity="0.5"/>
+    <polygon points="720,310 745,220 770,310"/>
+    <rect x="740" y="310" width="10" height="40" fill="#3b3b25" fill-opacity="0.5"/>
+  </g>
+  <!-- River/stream -->
+  <path d="M0 400 Q100 380 200 395 T400 385 T600 400 T800 390 V460 Q600 450 400 460 T0 455Z" fill="#3b82f6" fill-opacity="0.2"/>
+  <!-- Wildlife silhouette (heron) -->
+  <g fill="white" fill-opacity="0.15">
+    <path d="M420 300 Q422 280 425 270 Q427 260 430 270 Q432 280 434 300 Q427 305 420 300Z"/>
+    <line x1="427" y1="300" x2="427" y2="330" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
+    <line x1="427" y1="330" x2="422" y2="345" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
+    <line x1="427" y1="330" x2="432" y2="345" stroke="white" stroke-opacity="0.15" stroke-width="1.5"/>
+  </g>
+  <!-- Measurement markers -->
+  <g stroke="white" stroke-opacity="0.15" stroke-width="1">
+    <line x1="500" y1="340" x2="500" y2="400"/>
+    <line x1="495" y1="350" x2="505" y2="350"/>
+    <line x1="495" y1="370" x2="505" y2="370"/>
+    <line x1="495" y1="390" x2="505" y2="390"/>
+  </g>
+  <!-- Category label -->
+  <rect x="30" y="30" width="210" height="32" rx="16" fill="#2d6a4f" fill-opacity="0.9"/>
+  <text x="135" y="51" text-anchor="middle" fill="white" font-family="system-ui" font-size="12" font-weight="600">ECOSYSTEM RESTORATION</text>
+</svg>

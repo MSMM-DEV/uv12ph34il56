@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <linearGradient id="sky-i" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#334155"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky-i)"/>
+  <pattern id="grid-i" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-opacity="0.03" stroke-width="1"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid-i)"/>
+  <!-- Road surface -->
+  <path d="M0 350 L300 280 L500 280 L800 350 L800 500 L0 500Z" fill="#374151" fill-opacity="0.6"/>
+  <path d="M350 280 L380 280 L430 350 L370 350Z" fill="white" fill-opacity="0.08"/>
+  <path d="M400 280 L420 280 L470 350 L410 350Z" fill="white" fill-opacity="0.08"/>
+  <!-- Bridge structure -->
+  <rect x="200" y="250" width="400" height="30" rx="3" fill="#6b7280"/>
+  <rect x="200" y="250" width="400" height="6" rx="2" fill="#9ca3af"/>
+  <!-- Bridge piers -->
+  <rect x="280" y="280" width="20" height="140" fill="#4b5563"/>
+  <rect x="500" y="280" width="20" height="140" fill="#4b5563"/>
+  <!-- Truss lines -->
+  <g stroke="white" stroke-width="1" stroke-opacity="0.1">
+    <line x1="200" y1="256" x2="280" y2="280"/>
+    <line x1="280" y1="256" x2="200" y2="280"/>
+    <line x1="280" y1="256" x2="360" y2="280"/>
+    <line x1="360" y1="256" x2="280" y2="280"/>
+    <line x1="360" y1="256" x2="440" y2="280"/>
+    <line x1="440" y1="256" x2="360" y2="280"/>
+    <line x1="440" y1="256" x2="520" y2="280"/>
+    <line x1="520" y1="256" x2="440" y2="280"/>
+    <line x1="520" y1="256" x2="600" y2="280"/>
+    <line x1="600" y1="256" x2="520" y2="280"/>
+  </g>
+  <!-- Guard rails -->
+  <line x1="200" y1="248" x2="600" y2="248" stroke="#9ca3af" stroke-width="2"/>
+  <g stroke="#9ca3af" stroke-width="1.5">
+    <line x1="220" y1="248" x2="220" y2="256"/>
+    <line x1="260" y1="248" x2="260" y2="256"/>
+    <line x1="300" y1="248" x2="300" y2="256"/>
+    <line x1="340" y1="248" x2="340" y2="256"/>
+    <line x1="380" y1="248" x2="380" y2="256"/>
+    <line x1="420" y1="248" x2="420" y2="256"/>
+    <line x1="460" y1="248" x2="460" y2="256"/>
+    <line x1="500" y1="248" x2="500" y2="256"/>
+    <line x1="540" y1="248" x2="540" y2="256"/>
+    <line x1="580" y1="248" x2="580" y2="256"/>
+  </g>
+  <!-- Water under bridge -->
+  <path d="M240 380 Q320 370 400 380 T560 380 V420 H240Z" fill="#3b82f6" fill-opacity="0.12"/>
+  <!-- Category label -->
+  <rect x="30" y="30" width="195" height="32" rx="16" fill="#e10d0d" fill-opacity="0.9"/>
+  <text x="128" y="51" text-anchor="middle" fill="white" font-family="system-ui" font-size="12" font-weight="600">PUBLIC INFRASTRUCTURE</text>
+</svg>

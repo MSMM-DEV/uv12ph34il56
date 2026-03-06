@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <clipPath id="c">
+      <circle cx="32" cy="32" r="22.5"/>
+    </clipPath>
+  </defs>
+  <!-- Orbit ring (behind circle) -->
+  <ellipse cx="32" cy="32" rx="30" ry="8" transform="rotate(28 32 32)" fill="none" stroke="#1a1a1a" stroke-width="3.5"/>
+  <!-- Red circle -->
+  <circle cx="32" cy="32" r="24" fill="#e10d0d" stroke="#1a1a1a" stroke-width="2.5"/>
+  <!-- White cityscape bars -->
+  <g clip-path="url(#c)">
+    <rect x="13" y="45" width="3" height="16" fill="#fff"/>
+    <rect x="16.8" y="39" width="3" height="22" fill="#fff"/>
+    <rect x="20.6" y="43" width="3" height="18" fill="#fff"/>
+    <rect x="24.4" y="33" width="3" height="28" fill="#fff"/>
+    <rect x="28.2" y="40" width="3" height="21" fill="#fff"/>
+    <rect x="32" y="24" width="3" height="37" fill="#fff"/>
+    <rect x="35.8" y="29" width="3" height="32" fill="#fff"/>
+    <rect x="39.6" y="35" width="3" height="26" fill="#fff"/>
+    <rect x="43.4" y="40" width="3" height="21" fill="#fff"/>
+    <rect x="47.2" y="43" width="3" height="18" fill="#fff"/>
+  </g>
+  <!-- Orbit ring front crossing (on top) -->
+  <path d="M 9 25.4 A 30 8 28 0 1 50.4 47.4" fill="none" stroke="#1a1a1a" stroke-width="3.5"/>
+</svg>
