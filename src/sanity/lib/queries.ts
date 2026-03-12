@@ -107,6 +107,7 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
       "id": _id,
       name,
       "slug": slug.current,
+      department,
       title,
       credentials,
       shortBio,

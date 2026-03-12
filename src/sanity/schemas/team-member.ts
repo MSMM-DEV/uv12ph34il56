@@ -7,6 +7,13 @@ export const teamMember = defineType({
   fields: [
     defineField({ name: "name", title: "Name", type: "string", validation: (r) => r.required() }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "name" }, validation: (r) => r.required() }),
+    defineField({
+      name: "department",
+      title: "Department",
+      type: "string",
+      options: { list: ["Leadership", "Engineering", "Finance", "AI"] },
+      validation: (r) => r.required(),
+    }),
     defineField({ name: "title", title: "Job Title", type: "string" }),
     defineField({ name: "credentials", title: "Credentials", type: "string" }),
     defineField({ name: "shortBio", title: "Short Bio", type: "text", rows: 3 }),

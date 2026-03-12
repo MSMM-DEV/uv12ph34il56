@@ -26,6 +26,7 @@ export interface TeamMember {
   id: string;
   name: string;
   slug: string;
+  department: "Leadership" | "Engineering" | "Finance" | "AI";
   title: string;
   credentials: string;
   shortBio: string;

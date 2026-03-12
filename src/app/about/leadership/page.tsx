@@ -6,14 +6,16 @@ import { TeamGrid } from "@/components/team/team-grid";
 import type { TeamMember } from "@/types";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Leadership Team",
-  description: "Meet the experienced leadership team at MSMM Engineering with over 150 years of combined professional experience.",
+  title: "Our Team",
+  description: "Meet the 30+ professionals at MSMM Engineering across Leadership, Engineering, Finance, and AI departments.",
   path: "/about/leadership",
 });
 
+const DEPARTMENTS = ["Leadership", "Engineering", "Finance", "AI"] as const;
+
 const FALLBACK_TEAM: TeamMember[] = [
   {
-    id: "1", name: "Manish Mardia", slug: "manish-mardia",
+    id: "1", name: "Manish Mardia", slug: "manish-mardia", department: "Leadership",
     title: "President and Principal-In-Charge", credentials: "P.E.",
     shortBio: "Louisiana and Mississippi registered Professional Engineer with 35+ years of experience in drainage design, environmental engineering, civil engineering, and water and sewer projects.",
     photo: null, email: "", linkedin: "", displayOrder: 1, yearsOfExperience: 35,
@@ -21,7 +23,7 @@ const FALLBACK_TEAM: TeamMember[] = [
     licenses: ["Louisiana P.E.", "Mississippi P.E."], published: true,
   },
   {
-    id: "2", name: "Mark Wingate", slug: "mark-wingate",
+    id: "2", name: "Mark Wingate", slug: "mark-wingate", department: "Leadership",
     title: "Executive Vice President", credentials: "P.E.",
     shortBio: "Licensed Professional Engineer with 30+ years of federal service with USACE New Orleans District, including 8+ years as Deputy District Engineer.",
     photo: null, email: "", linkedin: "", displayOrder: 2, yearsOfExperience: 30,
@@ -29,7 +31,7 @@ const FALLBACK_TEAM: TeamMember[] = [
     licenses: ["Louisiana P.E."], published: true,
   },
   {
-    id: "3", name: "Jim Wilson", slug: "jim-wilson",
+    id: "3", name: "Jim Wilson", slug: "jim-wilson", department: "Engineering",
     title: "Vice President and Senior Engineer", credentials: "P.E., LEED AP",
     shortBio: "Senior civil/drainage engineer with 34+ years in the public sector designing and managing drainage, sewerage, roadway, and site development projects.",
     photo: null, email: "", linkedin: "", displayOrder: 3, yearsOfExperience: 34,
@@ -37,7 +39,7 @@ const FALLBACK_TEAM: TeamMember[] = [
     licenses: ["Louisiana P.E."], published: true,
   },
   {
-    id: "4", name: "Scott Chehardy", slug: "scott-chehardy",
+    id: "4", name: "Scott Chehardy", slug: "scott-chehardy", department: "Engineering",
     title: "Vice President and Senior Engineer", credentials: "P.E.",
     shortBio: "Senior civil engineer with 23+ years designing and managing projects throughout South Louisiana. Recognized drainage expert post-Hurricane Katrina.",
     photo: null, email: "", linkedin: "", displayOrder: 4, yearsOfExperience: 23,
@@ -45,7 +47,7 @@ const FALLBACK_TEAM: TeamMember[] = [
     licenses: ["Louisiana P.E."], published: true,
   },
   {
-    id: "5", name: "Dr. Marty Tittlebaum", slug: "marty-tittlebaum",
+    id: "5", name: "Dr. Marty Tittlebaum", slug: "marty-tittlebaum", department: "Engineering",
     title: "Senior Engineer", credentials: "P.E.",
     shortBio: "Former Edward G. Schlieder Chair for Urban Waste Management and Professor of Civil and Environmental Engineering. Recipient of over $8M in research funding.",
     photo: null, email: "", linkedin: "", displayOrder: 5, yearsOfExperience: 30,
@@ -65,22 +67,36 @@ async function getTeamData(): Promise<TeamMember[]> {
   }
 }
 
-export default async function LeadershipPage() {
+export default async function TeamPage() {
   const team = await getTeamData();
+
+  const grouped = DEPARTMENTS.reduce(
+    (acc, dept) => {
+      const members = team.filter((m) => m.department === dept);
+      if (members.length > 0) acc[dept] = members;
+      return acc;
+    },
+    {} as Record<string, TeamMember[]>,
+  );
 
   return (
     <>
       <PageHeader
-        title="Leadership Team"
-        subtitle="Meet the experienced professionals who lead MSMM Engineering"
+        title="Our Team"
+        subtitle="Meet the experienced professionals behind MSMM Engineering"
         breadcrumbs={[
           { label: "About", href: "/about" },
-          { label: "Leadership Team" },
+          { label: "Our Team" },
         ]}
       />
-      <Section>
-        <TeamGrid members={team} />
-      </Section>
+      {DEPARTMENTS.map((dept) =>
+        grouped[dept] ? (
+          <Section key={dept}>
+            <h2 className="mb-8 text-2xl font-bold text-foreground">{dept}</h2>
+            <TeamGrid members={grouped[dept]} />
+          </Section>
+        ) : null,
+      )}
     </>
   );
 }

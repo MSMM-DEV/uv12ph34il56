@@ -603,7 +603,8 @@ async function seed() {
   // Team Members
   console.log("Creating team members...");
   for (const member of teamMembers) {
-    const result = await client.create(member);
+    const _id = `teamMember-${member.slug._type === "slug" ? member.slug.current : member.slug}`;
+    const result = await client.createOrReplace({ ...member, _id });
     console.log(`  + ${member.name} (${result._id})`);
   }
   console.log(`  ${teamMembers.length} team members created\n`);
@@ -611,7 +612,8 @@ async function seed() {
   // Projects
   console.log("Creating projects...");
   for (const project of projects) {
-    const result = await client.create(project);
+    const _id = `project-${project.slug._type === "slug" ? project.slug.current : project.slug}`;
+    const result = await client.createOrReplace({ ...project, _id });
     console.log(`  + ${project.name} (${result._id})`);
   }
   console.log(`  ${projects.length} projects created\n`);
