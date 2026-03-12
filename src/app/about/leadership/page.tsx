@@ -1,7 +1,9 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { generatePageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/shared/page-header";
-import { Section } from "@/components/ui";
+import { Section, AnimateIn } from "@/components/ui";
+import { TeamFilters } from "@/components/team/team-filters";
 import { TeamGrid } from "@/components/team/team-grid";
 import type { TeamMember } from "@/types";
 
@@ -10,8 +12,6 @@ export const metadata: Metadata = generatePageMetadata({
   description: "Meet the 30+ professionals at MSMM Engineering across Leadership, Engineering, Finance, and AI departments.",
   path: "/about/leadership",
 });
-
-const DEPARTMENTS = ["Leadership", "Engineering", "Finance", "AI"] as const;
 
 const FALLBACK_TEAM: TeamMember[] = [
   {
@@ -56,28 +56,31 @@ const FALLBACK_TEAM: TeamMember[] = [
   },
 ];
 
-async function getTeamData(): Promise<TeamMember[]> {
+interface TeamPageProps {
+  searchParams: Promise<{ department?: string }>;
+}
+
+async function getTeamData(department?: string): Promise<TeamMember[]> {
   try {
-    if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return FALLBACK_TEAM;
+    if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return filterByDept(FALLBACK_TEAM, department);
     const { getTeamMembers } = await import("@/sanity/lib/queries");
     const members = await getTeamMembers();
-    return members.length > 0 ? members : FALLBACK_TEAM;
+    const data = members.length > 0 ? members : FALLBACK_TEAM;
+    return filterByDept(data, department);
   } catch {
-    return FALLBACK_TEAM;
+    return filterByDept(FALLBACK_TEAM, department);
   }
 }
 
-export default async function TeamPage() {
-  const team = await getTeamData();
+function filterByDept(members: TeamMember[], department?: string): TeamMember[] {
+  if (!department) return members;
+  return members.filter((m) => m.department === department);
+}
 
-  const grouped = DEPARTMENTS.reduce(
-    (acc, dept) => {
-      const members = team.filter((m) => m.department === dept);
-      if (members.length > 0) acc[dept] = members;
-      return acc;
-    },
-    {} as Record<string, TeamMember[]>,
-  );
+export default async function TeamPage({ searchParams }: TeamPageProps) {
+  const { department } = await searchParams;
+  const team = await getTeamData(department);
+  const totalCount = team.length;
 
   return (
     <>
@@ -89,14 +92,41 @@ export default async function TeamPage() {
           { label: "Our Team" },
         ]}
       />
-      {DEPARTMENTS.map((dept) =>
-        grouped[dept] ? (
-          <Section key={dept}>
-            <h2 className="mb-8 text-2xl font-bold text-foreground">{dept}</h2>
-            <TeamGrid members={grouped[dept]} />
-          </Section>
-        ) : null,
-      )}
+
+      <div className="border-b border-border bg-white/80 backdrop-blur-md sticky top-16 sm:top-20 z-30">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-4">
+            <AnimateIn animation="fade-in" className="min-w-0 flex-1">
+              <Suspense fallback={null}>
+                <TeamFilters />
+              </Suspense>
+            </AnimateIn>
+            <AnimateIn animation="fade-in" delay={150}>
+              <span className="hidden shrink-0 whitespace-nowrap rounded-full bg-gray-100 px-3 py-1 text-xs font-medium tabular-nums text-muted sm:inline-flex">
+                {totalCount} {totalCount === 1 ? "member" : "members"}
+              </span>
+            </AnimateIn>
+          </div>
+        </div>
+      </div>
+
+      <Section>
+        {team.length > 0 ? (
+          <TeamGrid members={team} />
+        ) : (
+          <AnimateIn animation="fade-up" delay={100}>
+            <div className="py-20 text-center">
+              <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-border">
+                <svg className="h-7 w-7 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                </svg>
+              </div>
+              <p className="text-lg font-medium text-foreground">No team members found</p>
+              <p className="mt-1 text-sm text-muted">Try selecting a different department.</p>
+            </div>
+          </AnimateIn>
+        )}
+      </Section>
     </>
   );
 }
