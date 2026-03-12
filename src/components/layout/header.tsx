@@ -20,11 +20,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -34,7 +29,7 @@ export function Header() {
           : "border-b border-transparent bg-white"
       )}
     >
-      <Container className="flex h-20 items-center justify-between">
+      <Container className="flex h-16 sm:h-20 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
@@ -142,14 +137,14 @@ export function Header() {
       >
         <div className="border-t border-border bg-white">
           <Container className="py-4">
-            <nav className="flex flex-col gap-1" aria-label="Mobile navigation">
+            <nav className="flex flex-col gap-0.5 sm:gap-1" aria-label="Mobile navigation">
               {NAV_LINKS.map((link) => (
                 <div key={link.href}>
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
-                      "block rounded-md px-4 py-3 text-base font-medium transition-colors cursor-pointer",
+                      "block rounded-md px-3 py-2.5 text-[15px] sm:px-4 sm:py-3 sm:text-base font-medium transition-colors cursor-pointer",
                       pathname === link.href
                         ? "text-primary bg-primary/5"
                         : "text-foreground hover:text-primary hover:bg-gray-50"
@@ -181,7 +176,7 @@ export function Header() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 block rounded-md bg-primary px-4 py-3 text-center text-base font-semibold text-white transition-colors cursor-pointer hover:bg-primary-dark"
+                className="mt-2 block rounded-md bg-primary px-4 py-2.5 sm:py-3 text-center text-[15px] sm:text-base font-semibold text-white transition-colors cursor-pointer hover:bg-primary-dark"
               >
                 Work With Us
               </Link>

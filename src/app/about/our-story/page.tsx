@@ -26,20 +26,20 @@ export default function OurStoryPage() {
             <h2 className="text-2xl font-bold text-foreground">
               From Vision to Reality
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted">
+            <p className="mt-6 text-base sm:text-lg leading-relaxed text-muted">
               MSMM Engineering, LLC was founded in 2011 by Manish Mardia, P.E., a
               Louisiana and Mississippi registered Professional Engineer with over 35
               years of experience in drainage design, environmental engineering, civil
               engineering, and water and sewer projects.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
               As a DBE small business headquartered in the New Orleans metropolitan
               area, MSMM was built on the principle of delivering high-quality
               engineering solutions that make a real difference in the communities
               we serve. Our team has collectively accumulated over 150 years of
               professional experience and has designed more than 250 projects.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
               Over the years, we have expanded from our Metairie headquarters to
               include offices in New Orleans, Houston, and Prairieville, serving
               clients across the Gulf South with comprehensive civil engineering
@@ -51,13 +51,13 @@ export default function OurStoryPage() {
             <h2 className="mt-12 text-2xl font-bold text-foreground">
               Our Expertise
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
               MSMM specializes in complete design services for public infrastructure,
               flood protection, water/wastewater, coastal and ecosystem restoration
               projects. We also have extensive expertise in hydraulic and hydrologic
               modeling and GIS mapping.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted">
+            <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
               Our founder and team members have deep knowledge of parish infrastructure
               across Orleans, Jefferson, St. Tammany, St. Charles, St. Bernard, and
               Ascension parishes, and are experienced with governmental funding programs

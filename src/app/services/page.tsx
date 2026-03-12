@@ -84,7 +84,7 @@ export default function ServicesPage() {
           </div>
         </AnimateIn>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 sm:mt-12 grid gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {SERVICE_CATEGORIES.map((cat, index) => {
             const data = FOCUS_AREA_DATA[cat.slug];
             const isWide = index === 0 || index === SERVICE_CATEGORIES.length - 1;
@@ -98,7 +98,7 @@ export default function ServicesPage() {
               >
                 <Link
                   href={`/services/${cat.slug}`}
-                  className="group relative block overflow-hidden rounded-2xl h-64 sm:h-72 lg:h-80"
+                  className="group relative block overflow-hidden rounded-xl sm:rounded-2xl h-52 sm:h-64 md:h-72 lg:h-80"
                 >
                   <Image
                     src={data.image}

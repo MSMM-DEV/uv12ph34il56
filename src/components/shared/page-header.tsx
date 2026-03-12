@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -10,10 +11,10 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, subtitle, breadcrumbs, className }: PageHeaderProps) {
   return (
-    <div className={cn("relative bg-secondary py-16 md:py-20 overflow-hidden", className)}>
+    <div className={cn("relative bg-secondary py-12 sm:py-16 md:py-20 overflow-hidden", className)}>
       {/* Background orb */}
       <div
-        className="absolute -right-1/4 -top-1/4 h-[400px] w-[400px] rounded-full opacity-[0.06]"
+        className="absolute -right-1/4 -top-1/4 h-[200px] w-[200px] rounded-full opacity-[0.06] sm:h-[300px] sm:w-[300px] lg:h-[400px] lg:w-[400px]"
         aria-hidden="true"
         style={{
           background: "radial-gradient(circle, var(--primary) 0%, transparent 70%)",
@@ -29,17 +30,17 @@ export function PageHeader({ title, subtitle, breadcrumbs, className }: PageHead
           >
             <ol className="flex items-center gap-2 text-sm text-gray-400">
               <li>
-                <a href="/" className="transition-colors cursor-pointer hover:text-white">
+                <Link href="/" className="transition-colors cursor-pointer hover:text-white">
                   Home
-                </a>
+                </Link>
               </li>
               {breadcrumbs.map((crumb, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <span>/</span>
                   {crumb.href ? (
-                    <a href={crumb.href} className="transition-colors cursor-pointer hover:text-white">
+                    <Link href={crumb.href} className="transition-colors cursor-pointer hover:text-white">
                       {crumb.label}
-                    </a>
+                    </Link>
                   ) : (
                     <span className="text-gray-300">{crumb.label}</span>
                   )}
@@ -49,14 +50,14 @@ export function PageHeader({ title, subtitle, breadcrumbs, className }: PageHead
           </nav>
         )}
         <h1
-          className="text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl"
+          className="text-2xl font-bold tracking-tight text-white sm:text-3xl md:text-4xl lg:text-5xl"
           style={{ animation: "hero-text-reveal 600ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both" }}
         >
           {title}
         </h1>
         {subtitle && (
           <p
-            className="mt-4 max-w-2xl text-lg text-gray-300"
+            className="mt-3 sm:mt-4 max-w-2xl text-base sm:text-lg text-gray-300"
             style={{ animation: "hero-text-reveal 600ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both" }}
           >
             {subtitle}

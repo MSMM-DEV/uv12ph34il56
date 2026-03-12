@@ -69,10 +69,10 @@ export function CertificationsSection() {
         </div>
 
         {/* Cards grid */}
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mt-10 sm:mt-14 grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CERTIFICATIONS.map((cert, i) => (
             <AnimateIn key={cert.abbrev} animation="cert-card-enter" delay={300 + i * 150} duration={700}>
-              <div className="cert-card group rounded-xl border border-border bg-white p-8">
+              <div className="cert-card group rounded-xl border border-border bg-white p-6 sm:p-8">
                 {/* Gradient accent bar at top */}
                 <div
                   className={`cert-accent-bar h-1 rounded-full bg-gradient-to-r ${cert.accent}`}

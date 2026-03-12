@@ -341,7 +341,13 @@ h1, h2, h3, h4, h5, h6 {
 .chatbot-window {
   animation: chatbot-open 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   transform-origin: bottom right;
-  max-height: min(580px, calc(100vh - 120px));
+  max-height: min(580px, calc(100vh - 100px));
+}
+
+@media (max-width: 639px) {
+  .chatbot-window {
+    max-height: min(500px, calc(100vh - 88px));
+  }
 }
 
 @keyframes chatbot-open {

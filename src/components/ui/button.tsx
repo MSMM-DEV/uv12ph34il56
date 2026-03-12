@@ -19,7 +19,7 @@ const variantStyles: Record<Variant, string> = {
 const sizeStyles: Record<Size, string> = {
   sm: "px-4 py-2 text-sm",
   md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
+  lg: "px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg",
 };
 
 type ButtonBaseProps = {

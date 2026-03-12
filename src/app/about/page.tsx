@@ -24,14 +24,14 @@ export default function AboutPage() {
               <h2 className="text-2xl font-bold text-foreground">
                 A Full Service Engineering Firm
               </h2>
-              <p className="mt-4 text-lg leading-relaxed text-muted">
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
                 MSMM Engineering, LLC was founded in 2011 by Manish Mardia, P.E. We are
                 a small full service engineering firm with an extensive design portfolio
                 of projects. Our team has collectively accumulated over 150 years of
                 professional experience and has designed more than 250 projects throughout
                 their careers.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-muted">
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
                 As a certified Disadvantaged Business Enterprise (DBE), we specialize in
                 complete design services for public infrastructure, flood protection,
                 water/wastewater, coastal and ecosystem restoration projects. MSMM also
@@ -46,7 +46,7 @@ export default function AboutPage() {
             </div>
           </AnimateIn>
           <AnimateIn animation="slide-in-right" delay={200}>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { value: "2011", label: "Year Founded" },
                 { value: "250+", label: "Projects Completed" },
@@ -55,7 +55,7 @@ export default function AboutPage() {
               ].map((stat, i) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg bg-primary/5 p-6 text-center hover-lift"
+                  className="rounded-lg bg-primary/5 p-4 sm:p-6 text-center hover-lift"
                   style={{
                     animation: `scale-in 500ms cubic-bezier(0.16, 1, 0.3, 1) ${300 + i * 100}ms both`,
                   }}

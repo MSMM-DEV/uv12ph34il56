@@ -423,7 +423,7 @@ function FloatingStructures() {
   ];
 
   return (
-    <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div className="absolute inset-0 pointer-events-none hidden sm:block" aria-hidden="true">
       {structures.map((s, i) => (
         <div
           key={i}
@@ -466,7 +466,7 @@ export function Hero() {
         />
         {/* Extra accent orb */}
         <div
-          className="absolute top-[20%] left-[40%] h-[350px] w-[350px] rounded-full opacity-[0.06]"
+          className="absolute top-[20%] left-[40%] h-[200px] w-[200px] rounded-full opacity-[0.06] sm:h-[280px] sm:w-[280px] lg:h-[350px] lg:w-[350px]"
           style={{
             background: "radial-gradient(circle, var(--primary-light) 0%, transparent 70%)",
             animation: "float-slow 15s ease-in-out 3s infinite",
@@ -477,7 +477,7 @@ export function Hero() {
         {PARTICLES.map((p, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-white/50"
+            className={`absolute rounded-full bg-white/50${i >= 6 ? " hidden sm:block" : ""}`}
             style={{
               width: p.size,
               height: p.size,
@@ -499,11 +499,11 @@ export function Hero() {
       <LeveeSilhouette />
 
       {/* ── Content ── */}
-      <Container className="relative flex flex-1 flex-col justify-center py-32 lg:py-40">
+      <Container className="relative flex flex-1 flex-col justify-center py-20 sm:py-28 lg:py-40">
         <div className="max-w-4xl">
           {/* Badge */}
           <div
-            className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.1] px-4 py-1.5 text-sm text-white mb-8 backdrop-blur-sm"
+            className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.1] px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm text-white mb-6 sm:mb-8 backdrop-blur-sm"
             style={{ animation: "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both" }}
           >
             <span
@@ -522,7 +522,7 @@ export function Hero() {
           </p>
 
           {/* Heading — word-by-word clip reveal */}
-          <h1 className="text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl leading-[1.08]">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08]">
             <span className="block">
               <HeroWord word="From" delay={500} />{" "}
               <HeroWord word="Conception" delay={600} />
@@ -535,7 +535,7 @@ export function Hero() {
 
           {/* Service keywords */}
           <div
-            className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-white/80 md:text-base"
+            className="mt-6 sm:mt-8 flex flex-wrap items-center gap-x-2 gap-y-1.5 text-xs sm:text-sm text-white/80 md:text-base"
             style={{ animation: "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) 1100ms both" }}
           >
             {SERVICES.map((service, i) => (
@@ -550,7 +550,7 @@ export function Hero() {
 
           {/* Description */}
           <p
-            className="mt-6 max-w-xl text-base leading-relaxed text-white/80 md:text-lg"
+            className="mt-4 sm:mt-6 max-w-xl text-sm sm:text-base leading-relaxed text-white/80 md:text-lg"
             style={{ animation: "hero-text-reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) 1200ms both" }}
           >
             New Orleans based engineering firm with 150+ years of combined experience
@@ -559,7 +559,7 @@ export function Hero() {
 
           {/* CTA */}
           <div
-            className="mt-10"
+            className="mt-8 sm:mt-10"
             style={{ animation: "hero-text-reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) 1400ms both" }}
           >
             <Link

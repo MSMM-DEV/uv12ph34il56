@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header, Footer } from "@/components/layout";
-import { Chatbot } from "@/components/shared/chatbot";
+import { JsonLd } from "@/components/shared/json-ld";
+import { ClientScripts } from "@/components/shared/client-scripts";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 import "./globals.css";
 
@@ -26,6 +25,8 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
+  manifest: "/manifest.json",
+  themeColor: "#e10d0d",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -58,12 +59,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${plusJakarta.variable} antialiased`}>
+        <JsonLd />
         <Header />
-        <main className="min-h-[calc(100vh-5rem)]">{children}</main>
+        <main className="min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-5rem)]">{children}</main>
         <Footer />
-        <Chatbot />
-        <Analytics />
-        <SpeedInsights />
+        <ClientScripts />
       </body>
     </html>
   );

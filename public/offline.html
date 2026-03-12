@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e10d0d">
+  <title>Offline | MSMM Engineering, LLC</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f9fafb;
+      color: #1f2937;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #111827;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    header .logo-text {
+      color: #ffffff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+    header .logo-text span {
+      color: #e10d0d;
+    }
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .offline-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+      color: #e10d0d;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      font-size: 1.05rem;
+      color: #6b7280;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .retry-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #e10d0d;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-bottom: 3rem;
+    }
+    .retry-btn:hover { background: #c40b0b; }
+    .contact-section {
+      width: 100%;
+      max-width: 720px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .contact-section h2 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 1.25rem;
+      border-bottom: 2px solid #e10d0d;
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    .offices {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .office {
+      text-align: left;
+    }
+    .office h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #e10d0d;
+      margin-bottom: 0.35rem;
+    }
+    .office p {
+      font-size: 0.875rem;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+    .office a {
+      color: #e10d0d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .office a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      border-top: 1px solid #e5e7eb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-text"><span>MSMM</span> Engineering</div>
+  </header>
+
+  <div class="container">
+    <svg class="offline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="1" y1="1" x2="23" y2="23"></line>
+      <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+      <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+      <path d="M10.71 5.05A16 16 0 0 1 22.56 9"></path>
+      <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+      <line x1="12" y1="20" x2="12.01" y2="20"></line>
+    </svg>
+
+    <h1>You're Offline</h1>
+    <p class="subtitle">
+      It looks like you've lost your internet connection. Some pages may still be available from cache.
+      Check your connection and try again.
+    </p>
+
+    <button class="retry-btn" onclick="window.location.reload()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"></polyline>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+      </svg>
+      Try Again
+    </button>
+
+    <div class="contact-section">
+      <h2>Contact Us</h2>
+      <div class="offices">
+        <div class="office">
+          <h3>Metairie (HQ)</h3>
+          <p>
+            4508 Clearview Parkway, Suite 200<br>
+            Metairie, LA 70006<br>
+            <a href="tel:+15045706098">(504) 570-6098</a>
+          </p>
+        </div>
+        <div class="office">
+          <h3>New Orleans</h3>
+          <p>
+            4640 Carrollton Avenue, Suite 220<br>
+            New Orleans, LA 70119<br>
+            <a href="tel:+15045706098">(504) 570-6098</a>
+          </p>
+        </div>
+        <div class="office">
+          <h3>Houston</h3>
+          <p>
+            13850 Gulf Freeway, Suite 202A<br>
+            Houston, TX 77034<br>
+            <a href="tel:+15045591897">(504) 559-1897</a>
+          </p>
+        </div>
+        <div class="office">
+          <h3>Ascension</h3>
+          <p>
+            16018 Highway 73<br>
+            Prairieville, LA 70769<br>
+            <a href="tel:+12253134429">(225) 313-4429</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MSMM Engineering, LLC. All rights reserved.
+  </footer>
+</body>
+</html>

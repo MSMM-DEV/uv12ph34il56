@@ -36,7 +36,7 @@ function AnimatedStat({ stat, isInView, index }: { stat: Stat; isInView: boolean
           : "none",
       }}
     >
-      <div className="text-2xl font-bold text-primary tabular-nums sm:text-3xl md:text-4xl">
+      <div className="text-xl font-bold text-primary tabular-nums sm:text-2xl md:text-3xl lg:text-4xl">
         {isInView ? count : 0}{suffix}
       </div>
       <div className="mt-2 text-sm font-medium text-muted">
@@ -56,7 +56,7 @@ export function StatsBar({ stats = FALLBACK_STATS }: StatsBarProps) {
   return (
     <section className="bg-white border-b border-border" ref={ref}>
       <Container>
-        <div className="grid grid-cols-2 gap-8 py-12 md:grid-cols-4 md:gap-12">
+        <div className="grid grid-cols-2 gap-6 py-10 sm:gap-8 sm:py-12 md:grid-cols-4 md:gap-12">
           {stats.map((stat, i) => (
             <AnimatedStat key={stat.label} stat={stat} isInView={isInView} index={i} />
           ))}

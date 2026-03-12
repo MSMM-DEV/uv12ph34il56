@@ -33,7 +33,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
         </div>
       </AnimateIn>
 
-      <div className="mt-10 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 sm:mt-10 grid gap-x-6 gap-y-8 sm:gap-x-8 sm:gap-y-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 lg:grid-cols-3">
         {projects.map((project, i) => {
           const imageSrc = project.coverImage || getPlaceholder(project.category);
 

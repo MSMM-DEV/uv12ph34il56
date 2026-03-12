@@ -221,7 +221,7 @@ export default async function ServiceDetailPage({
   return (
     <>
       {/* ── Hero banner ── */}
-      <div className="relative h-[40vh] min-h-[320px] overflow-hidden bg-secondary-dark sm:h-[50vh] sm:min-h-[400px]">
+      <div className="relative h-[45vh] min-h-[300px] overflow-hidden bg-secondary-dark sm:h-[45vh] sm:min-h-[360px] md:h-[50vh] md:min-h-[400px]">
         <Image
           src={content.image}
           alt={service.name}
@@ -233,7 +233,7 @@ export default async function ServiceDetailPage({
         <div className="absolute inset-0 bg-gradient-to-t from-secondary-dark via-secondary-dark/60 to-secondary-dark/40" />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary-dark/80 to-secondary-dark/20" />
 
-        <Container className="relative flex h-full flex-col justify-end pb-10 sm:pb-14">
+        <Container className="relative flex h-full flex-col justify-end pb-8 sm:pb-10 md:pb-14">
           {/* Breadcrumbs */}
           <nav
             aria-label="Breadcrumb"
@@ -269,7 +269,7 @@ export default async function ServiceDetailPage({
           </nav>
 
           <h1
-            className="max-w-3xl font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+            className="max-w-3xl font-heading text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl"
             style={{
               animation:
                 "hero-text-reveal 600ms cubic-bezier(0.16,1,0.3,1) 100ms both",
@@ -279,7 +279,7 @@ export default async function ServiceDetailPage({
           </h1>
 
           <p
-            className="mt-3 max-w-xl text-lg text-gray-100"
+            className="mt-2 sm:mt-3 max-w-xl text-base sm:text-lg text-gray-100"
             style={{
               animation:
                 "hero-text-reveal 600ms cubic-bezier(0.16,1,0.3,1) 200ms both",
@@ -322,7 +322,7 @@ export default async function ServiceDetailPage({
           {/* Why MSMM sidebar */}
           <div className="lg:col-span-2">
             <AnimateIn animation="slide-in-right" delay={200}>
-              <div className="rounded-2xl bg-secondary p-8 text-white">
+              <div className="rounded-2xl bg-secondary p-6 sm:p-8 text-white">
                 <h3 className="text-lg font-bold">Why MSMM?</h3>
                 <ul className="mt-5 space-y-4">
                   {content.highlights.map((h, i) => (
@@ -366,7 +366,7 @@ export default async function ServiceDetailPage({
           </h2>
         </AnimateIn>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 sm:mt-10 grid gap-3 sm:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {content.capabilities.map((cap, i) => (
             <AnimateIn key={cap} animation="fade-up" delay={i * 60}>
               <div className="group flex h-full items-start gap-4 rounded-xl border border-border bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/5">
@@ -393,7 +393,7 @@ export default async function ServiceDetailPage({
           </h2>
         </AnimateIn>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-8 sm:mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {related.map((s, i) => {
             const relData = SERVICE_CONTENT[s.slug];
             return (

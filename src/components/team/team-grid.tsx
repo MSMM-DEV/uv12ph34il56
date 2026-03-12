@@ -20,7 +20,7 @@ export function TeamGrid({ members }: TeamGridProps) {
   }
 
   return (
-    <div ref={ref} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div ref={ref} className="grid gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3">
       {members.map((member, i) => (
         <div
           key={member.id}

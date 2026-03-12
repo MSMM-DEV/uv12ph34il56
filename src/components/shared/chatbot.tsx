@@ -113,7 +113,7 @@ export function Chatbot() {
           }
         }}
         aria-label={open ? "Close chat" : "Open chat"}
-        className={`chatbot-fab fixed bottom-6 right-6 z-50 flex h-[60px] w-[60px] items-center justify-center rounded-full text-white cursor-pointer ${open ? "chatbot-fab-open" : ""}`}
+        className={`chatbot-fab fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-[52px] w-[52px] sm:h-[60px] sm:w-[60px] items-center justify-center rounded-full text-white cursor-pointer ${open ? "chatbot-fab-open" : ""}`}
       >
         <span className="chatbot-icon">
           {open ? (
@@ -163,7 +163,7 @@ export function Chatbot() {
 
       {/* Chat popup */}
       {open && (
-        <div className="chatbot-window fixed bottom-24 right-6 z-50 flex w-[380px] flex-col overflow-hidden rounded-3xl bg-white shadow-[0_24px_80px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(0,0,0,0.05)] max-sm:left-4 max-sm:right-4 max-sm:w-auto">
+        <div className="chatbot-window fixed bottom-[72px] right-3 sm:bottom-24 sm:right-6 z-50 flex w-[calc(100vw-1.5rem)] flex-col overflow-hidden rounded-2xl sm:rounded-3xl bg-white shadow-[0_24px_80px_-12px_rgba(0,0,0,0.25),0_0_0_1px_rgba(0,0,0,0.05)] max-h-[75vh] sm:max-h-[80vh] sm:w-[360px] md:w-[380px]">
 
           {/* ── Header ── */}
           <div className="chatbot-header relative overflow-hidden px-5 pb-5 pt-6">

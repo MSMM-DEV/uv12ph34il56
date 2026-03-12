@@ -8,9 +8,9 @@ export function Footer() {
 
   return (
     <footer className="bg-secondary text-white">
-      <Container className="py-10">
+      <Container className="py-8 sm:py-10">
         {/* Top: logo + nav columns */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[1fr_auto_auto]">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-[1fr_auto_auto]">
           {/* Company Info */}
           <AnimateIn animation="fade-up">
             <div className="flex items-center gap-3">
@@ -20,7 +20,6 @@ export function Footer() {
                 width={160}
                 height={40}
                 className="h-10 w-auto"
-                style={{ filter: "invert(1) hue-rotate(180deg)" }}
               />
               <a
                 href={SOCIAL_LINKS.linkedin}

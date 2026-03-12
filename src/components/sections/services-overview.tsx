@@ -11,43 +11,43 @@ const SERVICE_INFO: Record<string, { description: string; image: string }> = {
     description:
       "Design and engineering of roads, bridges, drainage systems, and municipal infrastructure.",
     image:
-      "https://images.unsplash.com/photo-1768962635991-0fa9543b7640?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1768962635991-0fa9543b7640?auto=format&fit=crop&w=1280&q=60",
   },
   "flood-control": {
     description:
       "Levee systems, pump stations, floodwalls, and stormwater management for the Gulf South.",
     image:
-      "https://images.unsplash.com/photo-1701340809575-82d013a7fd2d?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1701340809575-82d013a7fd2d?auto=format&fit=crop&w=1280&q=60",
   },
   "water-wastewater": {
     description:
       "Treatment facilities, pump stations, collection systems, and infrastructure rehabilitation.",
     image:
-      "https://images.unsplash.com/photo-1635145613344-3e59b1e8afd0?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1635145613344-3e59b1e8afd0?auto=format&fit=crop&w=1280&q=60",
   },
   "ecosystem-restoration": {
     description:
       "Restoring critical ecosystems, riparian habitats, and natural resources through engineering.",
     image:
-      "https://images.unsplash.com/photo-1770672850748-8f71736bbfc9?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1770672850748-8f71736bbfc9?auto=format&fit=crop&w=1280&q=60",
   },
   "coastal-restoration": {
     description:
       "Marsh creation, shoreline protection, salinity control structures, and barrier islands.",
     image:
-      "https://images.unsplash.com/photo-1758327740463-e8aa4d15b153?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1758327740463-e8aa4d15b153?auto=format&fit=crop&w=1280&q=60",
   },
   "hydraulic-hydrologic-modeling": {
     description:
       "Advanced hydraulic and hydrologic modeling, feasibility studies, and watershed planning.",
     image:
-      "https://images.unsplash.com/photo-1765025315763-9c744090e9de?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1765025315763-9c744090e9de?auto=format&fit=crop&w=1280&q=60",
   },
   "database-gis-mapping": {
     description:
       "Full-scale GIS services, survey data collection, database management, and spatial analysis.",
     image:
-      "https://images.unsplash.com/photo-1722082839841-45473f5a15cf?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1722082839841-45473f5a15cf?auto=format&fit=crop&w=1280&q=60",
   },
 };
 
@@ -100,14 +100,14 @@ export function ServicesOverview() {
     <section className="bg-accent">
       {/* Section header */}
       <Container>
-        <AnimateIn animation="fade-up" className="pt-16 pb-8 sm:pt-20 sm:pb-10">
+        <AnimateIn animation="fade-up" className="pt-12 pb-6 sm:pt-16 sm:pb-8 md:pt-20 md:pb-10">
           <p className="text-xs font-bold uppercase tracking-widest text-primary">
             What We Do
           </p>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl">
             Our Services
           </h2>
-          <p className="mt-4 max-w-2xl text-base text-foreground/60 sm:text-lg">
+          <p className="mt-3 sm:mt-4 max-w-2xl text-sm sm:text-base text-foreground/60 md:text-lg">
             Comprehensive civil engineering solutions from conceptual planning
             through construction and project completion.
           </p>
@@ -116,7 +116,7 @@ export function ServicesOverview() {
 
       {/* Carousel */}
       <div
-        className="relative mx-auto mb-16 h-[60vh] min-h-[420px] max-w-7xl overflow-hidden rounded-none sm:mb-20 sm:h-[65vh] sm:rounded-none lg:mx-8 lg:mb-24 lg:h-[70vh] lg:rounded-2xl xl:mx-auto"
+        className="relative mx-auto mb-12 h-[55vh] min-h-[380px] max-w-7xl overflow-hidden rounded-lg sm:mb-20 sm:h-[60vh] sm:min-h-[420px] sm:rounded-xl lg:mx-8 lg:mb-24 lg:h-[70vh] lg:rounded-2xl xl:mx-auto"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
@@ -152,13 +152,13 @@ export function ServicesOverview() {
 
         {/* Content + side navigation */}
         <div className="relative z-10 flex h-full items-center">
-          <div className="mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12">
-            <div className="flex items-center justify-between gap-12">
+          <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-12">
+            <div className="flex items-center justify-between gap-6 lg:gap-12">
               {/* Left: slide content */}
-              <div className="max-w-xl">
+              <div className="max-w-xl min-w-0">
                 {/* Slide counter */}
-                <div className="mb-6 flex items-center gap-3">
-                  <span className="font-heading text-5xl font-extralight tabular-nums text-white">
+                <div className="mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+                  <span className="font-heading text-3xl sm:text-5xl font-extralight tabular-nums text-white">
                     {String(activeIndex + 1).padStart(2, "0")}
                   </span>
                   <span className="text-white/60">/</span>
@@ -170,7 +170,7 @@ export function ServicesOverview() {
                 <div className="overflow-hidden">
                   <h3
                     key={`title-${activeIndex}`}
-                    className="carousel-title-enter font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
+                    className="carousel-title-enter font-heading text-2xl font-extrabold text-white drop-shadow-lg sm:text-3xl md:text-4xl lg:text-5xl"
                   >
                     {activeService.name}
                   </h3>
@@ -178,14 +178,14 @@ export function ServicesOverview() {
 
                 <p
                   key={`desc-${activeIndex}`}
-                  className="carousel-desc-enter mt-4 max-w-lg text-sm text-white/90 sm:mt-5 sm:text-base"
+                  className="carousel-desc-enter mt-3 max-w-lg text-xs sm:text-sm font-medium text-white md:mt-5 md:text-base"
                 >
                   {activeInfo.description}
                 </p>
 
                 <div
                   key={`cta-${activeIndex}`}
-                  className="carousel-cta-enter mt-6 sm:mt-8"
+                  className="carousel-cta-enter mt-4 sm:mt-6 md:mt-8"
                 >
                   <Link
                     href={`/services/${activeService.slug}`}
@@ -228,14 +228,14 @@ export function ServicesOverview() {
                           }`}
                         >
                           <span
-                            className={`shrink-0 tabular-nums text-xs font-medium transition-colors ${
-                              isActive ? "text-primary-light" : "text-white/50"
+                            className={`shrink-0 tabular-nums text-sm font-semibold transition-colors ${
+                              isActive ? "text-primary-light" : "text-white/60"
                             }`}
                           >
                             {String(index + 1).padStart(2, "0")}
                           </span>
                           <div className="min-w-0 flex-1">
-                            <span className="block truncate text-sm font-medium">
+                            <span className="block truncate text-base font-bold">
                               {service.name}
                             </span>
                             {isActive && (
@@ -269,7 +269,7 @@ export function ServicesOverview() {
               className="group relative py-2"
               aria-label={`Go to slide ${index + 1}: ${service.name}`}
             >
-              <div className="h-0.5 w-8 overflow-hidden rounded-full bg-white/20 sm:w-10">
+              <div className="h-0.5 w-6 overflow-hidden rounded-full bg-white/20 sm:w-10">
                 <div
                   className="h-full rounded-full bg-white transition-all ease-linear"
                   style={{

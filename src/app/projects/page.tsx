@@ -78,7 +78,7 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
       />
 
       {/* Filters + count bar */}
-      <div className="border-b border-border bg-white/80 backdrop-blur-md sticky top-20 z-30">
+      <div className="border-b border-border bg-white/80 backdrop-blur-md sticky top-16 sm:top-20 z-30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             <AnimateIn animation="fade-in" className="min-w-0 flex-1">

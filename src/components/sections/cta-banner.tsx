@@ -15,8 +15,8 @@ export function CTABanner() {
           animation: "gradient-shift 8s ease infinite",
         }}
       />
-      <Container className="relative py-16 md:py-20">
-        <div className="flex flex-col items-center gap-8 text-center md:flex-row md:text-left">
+      <Container className="relative py-12 sm:py-16 md:py-20">
+        <div className="flex flex-col items-center gap-6 sm:gap-8 text-center md:flex-row md:text-left">
           <AnimateIn animation="slide-in-left" duration={700} className="flex-1">
             <p className="text-xs font-bold uppercase tracking-widest text-white/50">
               Get In Touch

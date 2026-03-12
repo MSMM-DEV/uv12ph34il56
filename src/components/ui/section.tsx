@@ -24,7 +24,7 @@ export function Section({
   id,
 }: SectionProps) {
   return (
-    <section id={id} className={cn("py-16 md:py-24", bgStyles[background], className)}>
+    <section id={id} className={cn("py-12 sm:py-16 md:py-24", bgStyles[background], className)}>
       <Container className={containerClassName}>{children}</Container>
     </section>
   );

@@ -10,7 +10,7 @@ const SLIDES = [
     description:
       "Full-scale design for local, state, and federal government clients, inclusive of multi-disciplinary design across civil, structural, and environmental engineering.",
     image:
-      "https://images.unsplash.com/photo-1762146828422-50a8bd416d3c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1762146828422-50a8bd416d3c?auto=format&fit=crop&w=1920&q=60",
   },
   {
     title: "Project Management",
@@ -18,7 +18,7 @@ const SLIDES = [
     description:
       "Experienced project management professionals embedded with government clients for seamless, on-time project delivery.",
     image:
-      "https://images.unsplash.com/photo-1759922378222-47ad736a174d?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1759922378222-47ad736a174d?auto=format&fit=crop&w=1920&q=60",
   },
   {
     title: "Survey, GIS & Mapping",
@@ -26,7 +26,7 @@ const SLIDES = [
     description:
       "Full-scale GIS mapping services and survey data collection capabilities powering smarter infrastructure decisions.",
     image:
-      "https://images.unsplash.com/photo-1629988804949-870218cc412f?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1629988804949-870218cc412f?auto=format&fit=crop&w=1920&q=60",
   },
   {
     title: "Environmental & Permitting",
@@ -34,7 +34,7 @@ const SLIDES = [
     description:
       "Detailed project permitting and environmental designs that balance development with ecological preservation.",
     image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=60",
   },
   {
     title: "Construction Administration",
@@ -42,7 +42,7 @@ const SLIDES = [
     description:
       "Complete construction phase services from daily project inspection through administration and project closeout.",
     image:
-      "https://images.unsplash.com/photo-1763405739542-02991ab5416c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1763405739542-02991ab5416c?auto=format&fit=crop&w=1920&q=60",
   },
   {
     title: "H & H Modeling",
@@ -50,7 +50,7 @@ const SLIDES = [
     description:
       "Hydraulic and hydrologic solutions through cutting-edge modeling technologies, feasibility studies, and watershed master planning.",
     image:
-      "https://images.unsplash.com/photo-1765025315763-9c744090e9de?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1765025315763-9c744090e9de?auto=format&fit=crop&w=1920&q=60",
   },
 ];
 
@@ -97,7 +97,7 @@ export function ServicesCarousel() {
 
   return (
     <section
-      className="relative h-[70vh] min-h-[500px] w-full overflow-hidden bg-secondary-dark sm:h-[80vh] lg:h-[85vh]"
+      className="relative h-[60vh] min-h-[380px] w-full overflow-hidden bg-secondary-dark sm:h-[70vh] sm:min-h-[450px] md:h-[75vh] lg:h-[85vh]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -131,12 +131,12 @@ export function ServicesCarousel() {
       {/* Content + side navigation */}
       <div className="relative z-10 flex h-full items-center">
         <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-12">
+          <div className="flex items-center justify-between gap-6 lg:gap-12">
             {/* Left: slide content */}
-            <div className="max-w-xl">
+            <div className="max-w-xl min-w-0">
               {/* Slide counter */}
-              <div className="mb-6 flex items-center gap-3">
-                <span className="font-heading text-5xl font-extralight tabular-nums text-white">
+              <div className="mb-4 sm:mb-6 flex items-center gap-2 sm:gap-3">
+                <span className="font-heading text-3xl sm:text-5xl font-extralight tabular-nums text-white">
                   {String(activeIndex + 1).padStart(2, "0")}
                 </span>
                 <span className="text-white/60">/</span>
@@ -148,7 +148,7 @@ export function ServicesCarousel() {
               <div className="overflow-hidden">
                 <h1
                   key={`title-${activeIndex}`}
-                  className="carousel-title-enter font-heading text-3xl font-bold text-white sm:text-5xl lg:text-6xl"
+                  className="carousel-title-enter font-heading text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
                 >
                   {SLIDES[activeIndex].title}
                 </h1>
@@ -156,7 +156,7 @@ export function ServicesCarousel() {
 
               <p
                 key={`sub-${activeIndex}`}
-                className="carousel-subtitle-enter mt-3 text-lg font-medium text-primary-light sm:mt-4"
+                className="carousel-subtitle-enter mt-2 text-base font-medium text-primary-light sm:mt-3 sm:text-lg"
               >
                 {SLIDES[activeIndex].subtitle}
               </p>
@@ -252,7 +252,7 @@ export function ServicesCarousel() {
             className="group relative py-2"
             aria-label={`Go to slide ${index + 1}: ${slide.title}`}
           >
-            <div className="h-0.5 w-10 overflow-hidden rounded-full bg-white/20 sm:w-14">
+            <div className="h-0.5 w-7 overflow-hidden rounded-full bg-white/20 sm:w-14">
               <div
                 className="h-full rounded-full bg-white transition-all ease-linear"
                 style={{

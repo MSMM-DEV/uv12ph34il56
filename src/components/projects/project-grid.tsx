@@ -57,14 +57,14 @@ function HeroCard({ project }: { project: Project }) {
         </div>
 
         {/* Text side */}
-        <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
+        <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12 lg:p-16">
           {/* Category tag */}
           <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-primary-light">
             <span className="inline-block h-px w-6 bg-primary" />
             {project.category[0]}
           </div>
 
-          <h3 className="mt-4 text-2xl font-bold leading-tight text-white md:text-3xl lg:text-4xl">
+          <h3 className="mt-3 sm:mt-4 text-xl font-bold leading-tight text-white sm:text-2xl md:text-3xl lg:text-4xl">
             {project.name}
           </h3>
 
@@ -125,7 +125,7 @@ export function ProjectGrid({ projects, isFirstPage }: ProjectGridProps) {
       {gridProjects.length > 0 && (
         <div
           ref={ref}
-          className={`grid gap-x-10 gap-y-12 md:grid-cols-2 ${heroProject ? "mt-14" : ""}`}
+          className={`grid gap-x-6 gap-y-8 sm:gap-x-8 sm:gap-y-10 md:grid-cols-2 md:gap-x-10 md:gap-y-12 ${heroProject ? "mt-10 sm:mt-14" : ""}`}
         >
           {gridProjects.map((project, i) => (
             <div

@@ -56,7 +56,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
   return (
     <nav
       aria-label="Projects pagination"
-      className="mt-16 flex items-center justify-center gap-2"
+      className="mt-10 sm:mt-16 flex items-center justify-center gap-1 sm:gap-2"
       style={{ animation: "fade-up 500ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both" }}
     >
       {/* Previous */}
@@ -87,7 +87,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
           page === "ellipsis" ? (
             <span
               key={`ellipsis-${i}`}
-              className="flex h-10 w-10 items-center justify-center text-sm text-muted"
+              className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center text-sm text-muted"
             >
               &hellip;
             </span>
@@ -97,7 +97,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
               href={buildHref(page)}
               scroll={false}
               className={cn(
-                "flex h-10 w-10 items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
+                "flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
                 page === currentPage
                   ? "bg-secondary text-white shadow-sm"
                   : "text-foreground hover:bg-accent hover:text-primary"

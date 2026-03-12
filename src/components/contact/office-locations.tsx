@@ -5,7 +5,7 @@ export function OfficeLocations() {
     <div className="space-y-8">
       <h3 className="text-lg font-bold text-foreground sm:text-xl">Our Offices</h3>
       {OFFICES.map((office) => (
-        <div key={office.name} className="rounded-lg border border-border p-6 hover-lift hover-glow">
+        <div key={office.name} className="rounded-lg border border-border p-4 sm:p-6 hover-lift hover-glow">
           <h4 className="text-lg font-semibold text-foreground">{office.name}</h4>
           <div className="mt-3 space-y-2 text-sm text-muted">
             <p className="flex items-start gap-2">

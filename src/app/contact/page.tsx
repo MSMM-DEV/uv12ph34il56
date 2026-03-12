@@ -19,7 +19,7 @@ export default function ContactPage() {
         subtitle="Let's discuss how we can help with your next project"
       />
       <Section>
-        <div className="grid gap-12 lg:grid-cols-3">
+        <div className="grid gap-10 sm:gap-12 lg:grid-cols-3">
           <AnimateIn animation="slide-in-left" className="lg:col-span-2">
             <h2 className="text-xl font-bold text-foreground mb-6 sm:text-2xl">
               Send Us a Message
