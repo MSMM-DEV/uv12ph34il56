@@ -77,7 +77,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
           {/* Category + status badges */}
           <AnimateIn animation="fade-up" delay={100}>
             <div className="flex flex-wrap gap-2 mb-8">
-              {project.category.map((cat) => (
+              {project.category?.map((cat) => (
                 <Badge key={cat} variant="primary">{cat}</Badge>
               ))}
               <Badge variant={project.status === "Completed" ? "secondary" : "outline"}>
@@ -120,7 +120,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                         </dd>
                       </div>
                     ))}
-                    {project.servicesProvided.length > 0 && (
+                    {project.servicesProvided?.length > 0 && (
                       <div
                         className="px-6 py-4"
                         style={{
@@ -131,7 +131,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                           Services
                         </dt>
                         <dd className="mt-2 flex flex-wrap gap-1.5">
-                          {project.servicesProvided.map((s) => (
+                          {project.servicesProvided?.map((s) => (
                             <Badge key={s} variant="default">{s}</Badge>
                           ))}
                         </dd>

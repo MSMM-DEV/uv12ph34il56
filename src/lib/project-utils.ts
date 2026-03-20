@@ -6,7 +6,8 @@ const CATEGORY_PLACEHOLDERS: Record<string, string> = {
   "Ecosystem Restoration": "/assets/placeholders/ecosystem-restoration.svg",
 };
 
-export function getPlaceholder(categories: string[]): string {
+export function getPlaceholder(categories: string[] | null): string {
+  if (!categories) return "/assets/placeholders/engineering-default.svg";
   for (const cat of categories) {
     if (CATEGORY_PLACEHOLDERS[cat]) return CATEGORY_PLACEHOLDERS[cat];
   }

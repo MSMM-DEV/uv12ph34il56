@@ -16,7 +16,7 @@ export default function Error({
           Something Went Wrong
         </h1>
         <p className="mt-4 text-base text-muted sm:text-lg">
-          We apologize for the inconvenience. Please try again.
+          We apologize for the inconvenience. It&apos;s not you, it&apos;s us. We are fixing it as we speak.
         </p>
         <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
           <Button onClick={reset}>Try Again</Button>

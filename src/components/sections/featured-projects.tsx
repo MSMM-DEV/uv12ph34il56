@@ -67,7 +67,7 @@ export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                 <div className="mt-4">
                   <div className="flex items-center gap-1.5 text-xs tracking-wide text-muted">
                     <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-                    {project.category[0]}
+                    {project.category?.[0]}
                   </div>
                   <h3 className="project-card-title mt-2 text-lg font-semibold leading-snug text-foreground">
                     {project.name}

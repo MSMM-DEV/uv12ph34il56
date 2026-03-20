@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Card, CardContent, Badge } from "@/components/ui";
 import { ImageWithFallback } from "@/components/shared/image-with-fallback";
 import type { TeamMember } from "@/types";
@@ -7,6 +10,8 @@ interface TeamMemberCardProps {
 }
 
 export function TeamMemberCard({ member }: TeamMemberCardProps) {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Card hover>
       <div className="group relative aspect-[4/5] overflow-hidden bg-gray-100">
@@ -37,9 +42,15 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
         </h3>
         <p className="text-sm font-medium text-primary">{member.title}</p>
         {member.shortBio && (
-          <p className="mt-3 text-sm text-muted line-clamp-3">{member.shortBio}</p>
+          <p
+            onClick={() => setExpanded(!expanded)}
+            className={`mt-3 text-sm text-muted cursor-pointer${expanded ? "" : " line-clamp-3"}`}
+            title={expanded ? "Click to collapse" : "Click to read more"}
+          >
+            {member.shortBio}
+          </p>
         )}
-        {member.specialties.length > 0 && (
+        {member.specialties?.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
             {member.specialties.slice(0, 3).map((spec) => (
               <Badge key={spec} variant="secondary">

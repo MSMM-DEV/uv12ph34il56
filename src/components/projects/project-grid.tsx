@@ -61,7 +61,7 @@ function HeroCard({ project }: { project: Project }) {
           {/* Category tag */}
           <div className="flex items-center gap-2 text-xs tracking-widest uppercase text-primary-light">
             <span className="inline-block h-px w-6 bg-primary" />
-            {project.category[0]}
+            {project.category?.[0]}
           </div>
 
           <h3 className="mt-3 sm:mt-4 text-xl font-bold leading-tight text-white sm:text-2xl md:text-3xl lg:text-4xl">

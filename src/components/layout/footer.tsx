@@ -19,7 +19,7 @@ export function Footer() {
                 alt="MSMM Engineering, LLC"
                 width={160}
                 height={40}
-                className="h-10 w-auto"
+                className="h-10 w-auto brightness-0 invert"
               />
               <a
                 href={SOCIAL_LINKS.linkedin}
