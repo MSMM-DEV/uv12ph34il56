@@ -15,11 +15,11 @@ export function Footer() {
           <AnimateIn animation="fade-up">
             <div className="flex items-center gap-3">
               <Image
-                src="/assets/MSMM Logo.png"
+                src="/assets/MSMM%20Logo.png"
                 alt="MSMM Engineering, LLC"
                 width={160}
                 height={40}
-                className="h-10 w-auto brightness-0 invert"
+                className="h-10 w-auto"
               />
               <a
                 href={SOCIAL_LINKS.linkedin}

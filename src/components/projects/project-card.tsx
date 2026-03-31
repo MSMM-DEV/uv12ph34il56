@@ -14,10 +14,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="project-card group block cursor-pointer"
+      className="project-card group block cursor-pointer overflow-hidden rounded-lg border border-border bg-card hover-lift hover-glow"
     >
       {/* Image */}
-      <div className="project-card-image aspect-[3/2] overflow-hidden rounded-lg bg-gray-100">
+      <div className="project-card-image aspect-[3/2] overflow-hidden bg-gray-100">
         {project.coverImage ? (
           <ImageWithFallback
             src={imageSrc}
@@ -43,7 +43,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       {/* Text */}
-      <div className="mt-4">
+      <div className="p-4 sm:p-5">
         {/* Category + year row */}
         <div className="flex items-center gap-3 text-xs tracking-wide text-muted">
           <span className="flex items-center gap-1.5">

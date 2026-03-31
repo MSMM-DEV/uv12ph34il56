@@ -40,7 +40,7 @@ export default function AboutPage() {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Button href="/about/our-story">Our Story</Button>
                 <Button href="/about/leadership" variant="outline">
-                  Leadership Team
+                  Our Team
                 </Button>
               </div>
             </div>

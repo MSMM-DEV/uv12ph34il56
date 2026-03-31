@@ -43,6 +43,40 @@ export const project = defineType({
       type: "array",
       of: [{ type: "string" }],
     }),
+    defineField({
+      name: "gallery",
+      title: "Gallery",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({ name: "alt", title: "Alt Text", type: "string" }),
+            defineField({ name: "caption", title: "Caption", type: "string" }),
+          ],
+        },
+      ],
+      description: "Additional project photos for the carousel",
+    }),
+    defineField({
+      name: "videos",
+      title: "Videos",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            defineField({ name: "url", title: "Video URL", type: "url", validation: (r) => r.required() }),
+            defineField({ name: "title", title: "Title", type: "string" }),
+          ],
+          preview: {
+            select: { title: "title", subtitle: "url" },
+          },
+        },
+      ],
+      description: "Video embeds (YouTube, Vimeo, or direct video URLs)",
+    }),
     defineField({ name: "featured", title: "Featured", type: "boolean", initialValue: false }),
     defineField({ name: "displayOrder", title: "Display Order", type: "number", initialValue: 0 }),
     defineField({ name: "metaTitle", title: "Meta Title", type: "string" }),

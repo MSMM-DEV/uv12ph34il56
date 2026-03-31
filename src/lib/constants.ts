@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION =
 export const NAV_LINKS = [
   { label: "About Us", href: "/about", children: [
     { label: "Our Story", href: "/about/our-story" },
-    { label: "Leadership Team", href: "/about/leadership" },
+    { label: "Our Team", href: "/about/leadership" },
   ]},
   { label: "Services", href: "/services" },
   { label: "Projects", href: "/projects" },

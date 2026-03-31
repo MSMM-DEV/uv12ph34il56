@@ -25,6 +25,8 @@ export async function getProjects(category?: string): Promise<Project[]> {
       location,
       shortDescription,
       "coverImage": coverImage.asset->url,
+      "gallery": coalesce(gallery[] { "url": asset->url, "alt": coalesce(alt, ""), "caption": coalesce(caption, "") }, []),
+      "videos": coalesce(videos[] { "url": url, "title": coalesce(title, "") }, []),
       status,
       yearCompleted,
       servicesProvided,
@@ -50,6 +52,8 @@ export async function getFeaturedProjects(): Promise<Project[]> {
       location,
       shortDescription,
       "coverImage": coverImage.asset->url,
+      "gallery": coalesce(gallery[] { "url": asset->url, "alt": coalesce(alt, ""), "caption": coalesce(caption, "") }, []),
+      "videos": coalesce(videos[] { "url": url, "title": coalesce(title, "") }, []),
       status,
       yearCompleted,
       servicesProvided,
@@ -75,6 +79,8 @@ export async function getProjectBySlug(slug: string): Promise<ProjectDetail | nu
       location,
       shortDescription,
       "coverImage": coverImage.asset->url,
+      "gallery": coalesce(gallery[] { "url": asset->url, "alt": coalesce(alt, ""), "caption": coalesce(caption, "") }, []),
+      "videos": coalesce(videos[] { "url": url, "title": coalesce(title, "") }, []),
       body,
       status,
       yearCompleted,
@@ -88,7 +94,14 @@ export async function getProjectBySlug(slug: string): Promise<ProjectDetail | nu
     { next: { tags: ["projects"] } }
   );
   if (!result) return null;
-  return { ...result, content: result.body || [], teamMembers: [], published: true };
+  return {
+    ...result,
+    gallery: result.gallery || [],
+    videos: result.videos || [],
+    content: result.body || [],
+    teamMembers: [],
+    published: true,
+  };
 }
 
 export async function getProjectSlugs(): Promise<string[]> {
@@ -105,20 +118,20 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
   return client.fetch(
     `*[_type == "teamMember"] | order(displayOrder asc) {
       "id": _id,
-      name,
-      "slug": slug.current,
-      department,
-      title,
-      credentials,
-      shortBio,
+      "name": coalesce(name, ""),
+      "slug": coalesce(slug.current, ""),
+      "department": coalesce(department, "Engineering"),
+      "title": coalesce(title, ""),
+      "credentials": coalesce(credentials, ""),
+      "shortBio": coalesce(shortBio, ""),
       "photo": photo.asset->url,
-      email,
-      linkedin,
-      displayOrder,
-      yearsOfExperience,
-      specialties,
-      licenses,
-      "published": published
+      "email": coalesce(email, ""),
+      "linkedin": coalesce(linkedin, ""),
+      "displayOrder": coalesce(displayOrder, 99),
+      "yearsOfExperience": coalesce(yearsOfExperience, 0),
+      "specialties": coalesce(specialties, []),
+      "licenses": coalesce(licenses, []),
+      "published": coalesce(published, false)
     }`,
     {},
     { next: { tags: ["team"] } }
@@ -176,6 +189,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
       projectsCompleted,
       combinedExperience,
       teamMembers,
+      departments,
       announcementBanner,
       bannerActive
     }`,
@@ -187,6 +201,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     projectsCompleted: 250,
     combinedExperience: 150,
     teamMembers: 5,
+    departments: ["Leadership", "Engineering", "Operations/Finance", "AI"],
     announcementBanner: "",
     bannerActive: false,
   };

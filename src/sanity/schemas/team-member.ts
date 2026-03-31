@@ -11,7 +11,7 @@ export const teamMember = defineType({
       name: "department",
       title: "Department",
       type: "string",
-      options: { list: ["Leadership", "Engineering", "Finance", "AI"] },
+      description: "Must match a department from Site Settings → Team Departments",
       validation: (r) => r.required(),
     }),
     defineField({ name: "title", title: "Job Title", type: "string" }),

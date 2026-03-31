@@ -33,7 +33,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/assets/MSMM Logo.png"
+            src="/assets/MSMM%20Logo.png"
             alt="MSMM Engineering, LLC"
             width={200}
             height={50}

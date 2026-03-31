@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
 import { JsonLd } from "@/components/shared/json-ld";
@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   metadataBase: new URL(SITE_URL),
   manifest: "/manifest.json",
-  themeColor: "#e10d0d",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -49,6 +48,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#e10d0d",
 };
 
 export default function RootLayout({

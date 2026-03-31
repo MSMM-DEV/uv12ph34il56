@@ -9,7 +9,7 @@ import type { TeamMember } from "@/types";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Our Team",
-  description: "Meet the 30+ professionals at MSMM Engineering across Leadership, Engineering, Finance, and AI departments.",
+  description: "Meet the 30+ professionals at MSMM Engineering across Leadership, Engineering, Operations/Finance, and AI departments.",
   path: "/about/leadership",
 });
 
@@ -72,6 +72,17 @@ async function getTeamData(department?: string): Promise<TeamMember[]> {
   }
 }
 
+async function getDepartments(): Promise<string[]> {
+  try {
+    if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
+    const { getSiteSettings } = await import("@/sanity/lib/queries");
+    const settings = await getSiteSettings();
+    return settings.departments?.length > 0 ? settings.departments : [];
+  } catch {
+    return [];
+  }
+}
+
 function filterByDept(members: TeamMember[], department?: string): TeamMember[] {
   if (!department) return members;
   return members.filter((m) => m.department === department);
@@ -79,7 +90,10 @@ function filterByDept(members: TeamMember[], department?: string): TeamMember[] 
 
 export default async function TeamPage({ searchParams }: TeamPageProps) {
   const { department } = await searchParams;
-  const team = await getTeamData(department);
+  const [team, departments] = await Promise.all([
+    getTeamData(department),
+    getDepartments(),
+  ]);
   const totalCount = team.length;
 
   return (
@@ -98,7 +112,7 @@ export default async function TeamPage({ searchParams }: TeamPageProps) {
           <div className="flex items-center justify-between gap-4">
             <AnimateIn animation="fade-in" className="min-w-0 flex-1">
               <Suspense fallback={null}>
-                <TeamFilters />
+                <TeamFilters departments={departments} />
               </Suspense>
             </AnimateIn>
             <AnimateIn animation="fade-in" delay={150}>

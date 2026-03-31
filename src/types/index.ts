@@ -1,3 +1,14 @@
+export interface GalleryImage {
+  url: string;
+  alt: string;
+  caption: string;
+}
+
+export interface ProjectVideo {
+  url: string;
+  title: string;
+}
+
 export interface Project {
   id: string;
   name: string;
@@ -7,6 +18,8 @@ export interface Project {
   location: string;
   shortDescription: string;
   coverImage: string | null;
+  gallery: GalleryImage[];
+  videos: ProjectVideo[];
   status: "Completed" | "In Progress" | "Planning";
   yearCompleted: number | null;
   servicesProvided: string[];
@@ -26,7 +39,7 @@ export interface TeamMember {
   id: string;
   name: string;
   slug: string;
-  department: "Leadership" | "Engineering" | "Finance" | "AI";
+  department: string;
   title: string;
   credentials: string;
   shortBio: string;
@@ -71,6 +84,7 @@ export interface SiteSettings {
   projectsCompleted: number;
   combinedExperience: number;
   teamMembers: number;
+  departments: string[];
   announcementBanner: string;
   bannerActive: boolean;
 }

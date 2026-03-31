@@ -42,15 +42,33 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
         </h3>
         <p className="text-sm font-medium text-primary">{member.title}</p>
         {member.shortBio && (
-          <p
-            onClick={() => setExpanded(!expanded)}
-            className={`mt-3 text-sm text-muted cursor-pointer${expanded ? "" : " line-clamp-3"}`}
-            title={expanded ? "Click to collapse" : "Click to read more"}
-          >
-            {member.shortBio}
-          </p>
+          <div className="mt-3">
+            <p
+              className={`text-sm text-muted${expanded ? "" : " line-clamp-3"}`}
+            >
+              {member.shortBio}
+            </p>
+            {member.shortBio.length > 120 && (
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-[#e10d0d]/80 hover:text-[#e10d0d] transition-colors cursor-pointer"
+                aria-expanded={expanded}
+              >
+                {expanded ? "Show Less" : "Show More"}
+                <svg
+                  className={`h-3 w-3 transition-transform duration-200${expanded ? " rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+            )}
+          </div>
         )}
-        {member.specialties?.length > 0 && (
+        {Array.isArray(member.specialties) && member.specialties.length > 0 && (
           <div className="mt-3 flex flex-wrap gap-1">
             {member.specialties.slice(0, 3).map((spec) => (
               <Badge key={spec} variant="secondary">

@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  p {
+    text-align: justify;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;
@@ -44,6 +50,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), var(--font-sans), system-ui, sans-serif;
