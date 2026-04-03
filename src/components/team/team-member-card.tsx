@@ -14,7 +14,7 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
 
   return (
     <Card hover>
-      <div className="group relative aspect-[4/5] overflow-hidden bg-gray-100">
+      <div className="group relative aspect-[16/17] overflow-hidden bg-gray-100">
         {member.photo ? (
           <ImageWithFallback
             src={member.photo}
