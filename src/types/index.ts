@@ -26,6 +26,7 @@ export interface Project {
   featured: boolean;
   displayOrder: number;
   published: boolean;
+  isHidden?: boolean;
   metaTitle: string;
   metaDescription: string;
 }
@@ -51,6 +52,7 @@ export interface TeamMember {
   specialties: string[];
   licenses: string[];
   published: boolean;
+  isHidden?: boolean;
 }
 
 export interface Job {

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { generatePageMetadata } from "@/lib/metadata";
 import { PageHeader } from "@/components/shared/page-header";
 import { ProjectCarousel } from "@/components/projects/project-carousel";
+import { ProjectGallery } from "@/components/projects/project-gallery";
 import { Badge, Button, Section, AnimateIn } from "@/components/ui";
 import type { ProjectDetail } from "@/types";
 
@@ -181,6 +182,15 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               </div>
             </AnimateIn>
           </div>
+
+          {/* Project Gallery (images + videos) — only renders when media exists */}
+          <AnimateIn animation="fade-up" delay={300}>
+            <ProjectGallery
+              gallery={project.gallery ?? []}
+              videos={project.videos ?? []}
+              projectName={project.name}
+            />
+          </AnimateIn>
         </div>
       </Section>
     </>

@@ -12,6 +12,10 @@ interface ProjectPaginationProps {
 export function ProjectPagination({ currentPage, totalPages }: ProjectPaginationProps) {
   const searchParams = useSearchParams();
 
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   function buildHref(page: number) {
     const params = new URLSearchParams(searchParams.toString());
     if (page <= 1) {
@@ -65,6 +69,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
           href={buildHref(currentPage - 1)}
           className="group flex h-10 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-primary cursor-pointer"
           scroll={false}
+          onClick={scrollToTop}
           aria-label="Previous page"
         >
           <svg className="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -96,6 +101,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
               key={page}
               href={buildHref(page)}
               scroll={false}
+              onClick={scrollToTop}
               className={cn(
                 "flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
                 page === currentPage
@@ -117,6 +123,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
           href={buildHref(currentPage + 1)}
           className="group flex h-10 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-primary cursor-pointer"
           scroll={false}
+          onClick={scrollToTop}
           aria-label="Next page"
         >
           <span className="hidden sm:inline">Next</span>
