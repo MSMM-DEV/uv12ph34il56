@@ -72,12 +72,11 @@ async function getTeamData(department?: string): Promise<TeamMember[]> {
   }
 }
 
-async function getDepartments(): Promise<string[]> {
+async function fetchDepartments(): Promise<string[]> {
   try {
     if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return [];
-    const { getSiteSettings } = await import("@/sanity/lib/queries");
-    const settings = await getSiteSettings();
-    return settings.departments?.length > 0 ? settings.departments : [];
+    const { getDepartments } = await import("@/sanity/lib/queries");
+    return getDepartments();
   } catch {
     return [];
   }
@@ -92,7 +91,7 @@ export default async function TeamPage({ searchParams }: TeamPageProps) {
   const { department } = await searchParams;
   const [team, departments] = await Promise.all([
     getTeamData(department),
-    getDepartments(),
+    fetchDepartments(),
   ]);
   const totalCount = team.length;
 

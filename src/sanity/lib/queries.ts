@@ -120,7 +120,7 @@ export async function getTeamMembers(): Promise<TeamMember[]> {
       "id": _id,
       "name": coalesce(name, ""),
       "slug": coalesce(slug.current, ""),
-      "department": coalesce(department, "Engineering"),
+      "department": coalesce(department->name, "Engineering"),
       "title": coalesce(title, ""),
       "credentials": coalesce(credentials, ""),
       "shortBio": coalesce(shortBio, ""),
@@ -146,7 +146,7 @@ export async function getJobs(): Promise<Job[]> {
       "id": _id,
       title,
       "slug": slug.current,
-      department,
+      "department": department->name,
       location,
       type,
       benefits,
@@ -178,6 +178,17 @@ export async function getTestimonials(): Promise<Testimonial[]> {
     {},
     { next: { tags: ["testimonials"] } }
   );
+}
+
+// ─── Departments ────────────────────────────────────────────────────────────
+
+export async function getDepartments(): Promise<string[]> {
+  const result = await client.fetch<{ name: string }[]>(
+    `*[_type == "department"] | order(displayOrder asc) { name }`,
+    {},
+    { next: { tags: ["departments"] } }
+  );
+  return result?.map((d) => d.name) ?? [];
 }
 
 // ─── Site Settings ───────────────────────────────────────────────────────────

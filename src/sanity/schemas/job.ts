@@ -1,5 +1,4 @@
 import { defineField, defineType } from "sanity";
-import DepartmentInput from "../components/DepartmentInput";
 
 export const job = defineType({
   name: "job",
@@ -11,8 +10,8 @@ export const job = defineType({
     defineField({
       name: "department",
       title: "Department",
-      type: "string",
-      components: { input: DepartmentInput },
+      type: "reference",
+      to: [{ type: "department" }],
     }),
     defineField({
       name: "location",
