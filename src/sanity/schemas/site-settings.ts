@@ -15,7 +15,7 @@ export const siteSettings = defineType({
       description: "Manage the department tabs shown on the Team page. Order here controls display order.",
       type: "array",
       of: [{ type: "string" }],
-      initialValue: ["Leadership", "Engineering", "Operations/Finance", "AI"],
+      initialValue: ["Leadership", "Engineering", "Operations/Finance", "AI", "Project Management", "Administration"],
     }),
     defineField({ name: "announcementBanner", title: "Announcement Banner", type: "string" }),
     defineField({ name: "bannerActive", title: "Banner Active", type: "boolean", initialValue: false }),

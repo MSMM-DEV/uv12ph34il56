@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import DepartmentInput from "../components/DepartmentInput";
 
 export const teamMember = defineType({
   name: "teamMember",
@@ -12,14 +13,7 @@ export const teamMember = defineType({
       title: "Department",
       type: "string",
       description: "Select the department for this team member",
-      options: {
-        list: [
-          "Leadership",
-          "Engineering",
-          "Operations/Finance",
-          "AI",
-        ],
-      },
+      components: { input: DepartmentInput },
       validation: (r) => r.required(),
     }),
     defineField({ name: "title", title: "Job Title", type: "string" }),
