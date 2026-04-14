@@ -1,5 +1,3 @@
-"use client";
-
 import { useCallback, useEffect, useState } from "react";
 import { type StringInputProps, set, unset, useClient } from "sanity";
 
@@ -9,6 +7,7 @@ export default function DepartmentInput(props: StringInputProps) {
 
   const [departments, setDepartments] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     client
@@ -17,7 +16,11 @@ export default function DepartmentInput(props: StringInputProps) {
         setDepartments(result ?? []);
         setLoading(false);
       })
-      .catch(() => setLoading(false));
+      .catch((err) => {
+        console.error("DepartmentInput fetch error:", err);
+        setError(err?.message ?? "Failed to load departments");
+        setLoading(false);
+      });
   }, [client]);
 
   const handleChange = useCallback(
@@ -30,6 +33,14 @@ export default function DepartmentInput(props: StringInputProps) {
 
   if (loading) {
     return <span style={{ color: "#888" }}>Loading departments…</span>;
+  }
+
+  if (error) {
+    return (
+      <span style={{ color: "#b00" }}>
+        Error loading departments: {error}
+      </span>
+    );
   }
 
   if (departments.length === 0) {
