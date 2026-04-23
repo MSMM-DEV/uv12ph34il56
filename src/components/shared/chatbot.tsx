@@ -11,7 +11,7 @@ const FAQ: { question: string; answer: string }[] = [
   {
     question: "What does MSMM Engineering do?",
     answer:
-      "MSMM Engineering is a New Orleans-based civil engineering firm specializing in flood protection, water/wastewater systems, coastal and ecosystem restoration, public infrastructure, and hydraulic & hydrologic modeling. We've delivered 250+ projects since our founding in 2011.",
+      "MSMM Engineering is a New Orleans-based civil engineering firm specializing in flood protection, water/wastewater systems, coastal and ecosystem restoration, public infrastructure, and hydraulic & hydrologic modeling. We've been delivering expert engineering solutions across the Gulf South since our founding in 2011.",
   },
   {
     question: "How much experience does your team have?",

@@ -28,8 +28,7 @@ export default function AboutPage() {
                 MSMM Engineering, LLC was founded in 2011 by Manish Mardia, P.E. We are
                 a small full service engineering firm with an extensive design portfolio
                 of projects. Our team has collectively accumulated over 150 years of
-                professional experience and has designed more than 250 projects throughout
-                their careers.
+                professional experience across a wide range of engineering projects.
               </p>
               <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
                 As a certified Disadvantaged Business Enterprise (DBE), we specialize in
@@ -46,10 +45,9 @@ export default function AboutPage() {
             </div>
           </AnimateIn>
           <AnimateIn animation="slide-in-right" delay={200}>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4">
               {[
                 { value: "2011", label: "Year Founded" },
-                { value: "250+", label: "Projects Completed" },
                 { value: "4", label: "Office Locations" },
                 { value: "150+", label: "Years Combined Exp." },
               ].map((stat, i) => (

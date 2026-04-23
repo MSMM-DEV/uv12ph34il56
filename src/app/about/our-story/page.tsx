@@ -37,7 +37,7 @@ export default function OurStoryPage() {
               area, MSMM was built on the principle of delivering high-quality
               engineering solutions that make a real difference in the communities
               we serve. Our team has collectively accumulated over 150 years of
-              professional experience and has designed more than 250 projects.
+              professional experience across a wide range of engineering projects.
             </p>
             <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted">
               Over the years, we have expanded from our Metairie headquarters to

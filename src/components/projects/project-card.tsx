@@ -56,10 +56,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
               <span>{project.yearCompleted}</span>
             </>
           )}
-          {project.status !== "Completed" && (
+          {project.status && (
             <>
               <span className="text-border">|</span>
-              <span className="text-secondary font-medium">{project.status}</span>
+              <span
+                className={`font-medium ${
+                  project.status === "Completed" ? "text-primary" : "text-secondary"
+                }`}
+              >
+                {project.status}
+              </span>
             </>
           )}
         </div>

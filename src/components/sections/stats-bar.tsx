@@ -11,7 +11,7 @@ interface Stat {
 
 const FALLBACK_STATS: Stat[] = [
   { value: "14+", label: "Years of Experience" },
-  { value: "250+", label: "Projects Completed" },
+  { value: "2011", label: "Year Founded" },
   { value: "4", label: "Office Locations" },
   { value: "150+", label: "Years Combined Experience" },
 ];

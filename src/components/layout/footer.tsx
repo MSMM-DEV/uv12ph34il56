@@ -87,7 +87,7 @@ export function Footer() {
         {/* Offices row */}
         <AnimateIn animation="fade-up" delay={300}>
           <div className="mt-8 border-t border-white/10 pt-6">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:justify-items-center">
               {OFFICES.map((office) => (
                 <div key={office.name} className="flex items-start gap-2 text-sm">
                   <svg className="mt-0.5 h-4 w-4 shrink-0 text-gray-500" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -114,13 +114,10 @@ export function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <Container className="flex flex-col items-center justify-between gap-3 py-4 sm:flex-row">
+        <Container className="flex items-center justify-center py-4">
           <p className="text-xs text-gray-500">
             &copy; {currentYear} {SITE_NAME}. All rights reserved.
           </p>
-          <Link href="/privacy" className="text-xs text-gray-500 transition-colors cursor-pointer hover:text-white">
-            Privacy Policy
-          </Link>
         </Container>
       </div>
     </footer>

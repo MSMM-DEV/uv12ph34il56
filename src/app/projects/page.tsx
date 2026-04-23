@@ -12,7 +12,7 @@ const PROJECTS_PER_PAGE = 10;
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Projects",
-  description: "Explore MSMM Engineering's portfolio of 250+ civil engineering projects including flood control, infrastructure, water/wastewater, and coastal restoration.",
+  description: "Explore MSMM Engineering's portfolio of civil engineering projects including flood control, infrastructure, water/wastewater, and coastal restoration.",
   path: "/projects",
 });
 
@@ -70,31 +70,22 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
   const currentPage = Math.min(Math.max(1, parseInt(page || "1", 10) || 1), totalPages);
   const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
   const paginatedProjects = projects.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
-  const showingFrom = totalCount === 0 ? 0 : startIndex + 1;
-  const showingTo = Math.min(startIndex + PROJECTS_PER_PAGE, totalCount);
 
   return (
     <>
       <PageHeader
         title="Our Projects"
-        subtitle="Explore our portfolio of 250+ engineering projects across the Gulf South"
+        subtitle="Explore our portfolio of engineering projects across the Gulf South"
       />
 
-      {/* Filters + count bar */}
+      {/* Filters bar */}
       <div className="border-b border-border bg-white/80 backdrop-blur-md sticky top-16 sm:top-20 z-30">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between gap-4">
-            <AnimateIn animation="fade-in" className="min-w-0 flex-1">
-              <Suspense fallback={null}>
-                <ProjectFilters />
-              </Suspense>
-            </AnimateIn>
-            <AnimateIn animation="fade-in" delay={150}>
-              <span className="hidden shrink-0 whitespace-nowrap rounded-full bg-gray-100 px-3 py-1 text-xs font-medium tabular-nums text-muted sm:inline-flex">
-                {showingFrom}&#8211;{showingTo} of {totalCount}
-              </span>
-            </AnimateIn>
-          </div>
+          <AnimateIn animation="fade-in" className="min-w-0">
+            <Suspense fallback={null}>
+              <ProjectFilters />
+            </Suspense>
+          </AnimateIn>
         </div>
       </div>
 
