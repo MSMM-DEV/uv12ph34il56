@@ -12,8 +12,8 @@ import type {
 
 export async function getProjects(category?: string): Promise<Project[]> {
   const filter = category
-    ? `*[_type == "project" && "${category}" in category && isHidden != true] | order(displayOrder asc)`
-    : `*[_type == "project" && isHidden != true] | order(displayOrder asc)`;
+    ? `*[_type == "project" && "${category}" in category && isHidden != true] | order(displayOrder asc, _updatedAt desc)`
+    : `*[_type == "project" && isHidden != true] | order(displayOrder asc, _updatedAt desc)`;
 
   return client.fetch(
     `${filter} {
@@ -43,7 +43,7 @@ export async function getProjects(category?: string): Promise<Project[]> {
 
 export async function getFeaturedProjects(): Promise<Project[]> {
   return client.fetch(
-    `*[_type == "project" && featured == true && isHidden != true] | order(displayOrder asc) [0...6] {
+    `*[_type == "project" && featured == true && isHidden != true] | order(displayOrder asc, _updatedAt desc) [0...6] {
       "id": _id,
       name,
       "slug": slug.current,
