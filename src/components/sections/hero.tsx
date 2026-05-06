@@ -305,118 +305,78 @@ function TopoLines() {
 /* ─── Floating Gulf-native structures ─── */
 function FloatingStructures() {
   const structures = [
-    // Pump station — top-right area
+    // Road — top-right area
     {
-      top: "10%", left: "72%", size: 80, opacity: 0.3, duration: 10, delay: 0, anim: "structure-float",
+      top: "10%", left: "72%", size: 86, opacity: 0.42, duration: 10, delay: 0, anim: "structure-float",
       icon: (
-        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="10" y="18" width="28" height="20" rx="2" />
-          <path d="M14 18V12h20v6" />
-          <path d="M24 12V6" />
-          <circle cx="20" cy="28" r="4" />
-          <circle cx="34" cy="28" r="3" />
-          <path d="M10 38h28" />
-          <path d="M16 38v4M32 38v4" />
+        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round">
+          <path d="M4 16h40" />
+          <path d="M4 32h40" />
+          <path d="M6 24h36" strokeWidth="1.7" strokeDasharray="5 4" />
         </svg>
       ),
     },
-    // Floodgate / sluice gate — mid-left
+    // Pump (PS) — mid-left
     {
-      top: "30%", left: "3%", size: 72, opacity: 0.28, duration: 12, delay: 1, anim: "structure-float-reverse",
+      top: "30%", left: "3%", size: 78, opacity: 0.42, duration: 12, delay: 1, anim: "structure-float-reverse",
       icon: (
-        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="8" y="14" width="32" height="24" rx="1" />
-          <path d="M8 26h32" />
-          <path d="M18 14v24M30 14v24" />
-          <path d="M4 38h40" />
-          <path d="M24 8v6" />
-          <path d="M20 8h8" />
-          <path d="M14 26v-4h6v4M28 26v-4h6v4" />
+        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="8" y="14" width="32" height="20" rx="2" />
+          <text x="24" y="29" textAnchor="middle" fontSize="13" fontFamily="ui-sans-serif, system-ui, sans-serif" fontWeight="700" fill="rgba(255,255,255,0.9)" stroke="none">PS</text>
         </svg>
       ),
     },
-    // Buoy / channel marker — near water area
+    // Valve cross handle (X-wheel) — mid-right
     {
-      top: "50%", left: "84%", size: 56, opacity: 0.35, duration: 7, delay: 0.5, anim: "structure-float",
+      top: "50%", left: "84%", size: 70, opacity: 0.42, duration: 9, delay: 0.5, anim: "structure-float",
       icon: (
-        <svg viewBox="0 0 32 32" fill="none" stroke="rgba(225,13,13,0.9)" strokeWidth="1.8" strokeLinecap="round">
-          <path d="M16 4v8" />
-          <circle cx="16" cy="16" r="5" fill="rgba(225,13,13,0.25)" />
-          <path d="M16 21v4" />
-          <path d="M12 28c2-2 6-2 8 0" />
-          <path d="M10 30c3-3 9-3 12 0" />
+        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M24 12v24" />
+          <path d="M12 24h24" />
+          <circle cx="24" cy="10" r="3" />
+          <circle cx="24" cy="38" r="3" />
+          <circle cx="10" cy="24" r="3" />
+          <circle cx="38" cy="24" r="3" />
+          <circle cx="24" cy="24" r="4" fill="rgba(255,255,255,0.15)" />
         </svg>
       ),
     },
     // Marsh grass cluster — bottom-left
     {
-      top: "58%", left: "8%", size: 76, opacity: 0.3, duration: 9, delay: 0.8, anim: "structure-float-reverse",
+      top: "58%", left: "8%", size: 82, opacity: 0.4, duration: 9, delay: 0.8, anim: "structure-float-reverse",
       icon: (
-        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.5" strokeLinecap="round">
+        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.7" strokeLinecap="round">
           <path d="M12 40c0-12 4-20 8-24" />
           <path d="M16 40c0-10 3-18 6-22" />
           <path d="M20 40c0-14 5-22 10-26" />
           <path d="M26 40c0-12 4-18 7-22" />
           <path d="M32 40c0-10 3-16 5-18" />
           <path d="M36 40c0-8 2-14 4-16" />
-          <path d="M8 40h32" strokeWidth="1.8" />
+          <path d="M8 40h32" strokeWidth="2" />
         </svg>
       ),
     },
-    // Pelican silhouette — upper area
+    // Manhole (M) — top-center
     {
-      top: "5%", left: "48%", size: 68, opacity: 0.25, duration: 11, delay: 1.5, anim: "structure-float",
+      top: "5%", left: "48%", size: 74, opacity: 0.42, duration: 11, delay: 1.5, anim: "structure-float",
       icon: (
-        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M8 22c4-2 8-6 14-6s8 2 12 0" />
-          <path d="M22 16c0-4-2-7-4-8" />
-          <path d="M18 8c2-1 5-1 6 1" />
-          <path d="M24 9c0 2-1 4-2 7" />
-          <path d="M8 22c-2 2-2 4 0 5s6 0 8-2" />
-          <path d="M34 22c2 1 4 4 4 8" />
-          <path d="M36 30c-2 4-8 8-14 8" />
-          <path d="M22 38v4" />
-          <path d="M20 42h4" />
-        </svg>
-      ),
-    },
-    // Shrimp boat — mid-right near water
-    {
-      top: "40%", left: "58%", size: 74, opacity: 0.28, duration: 11, delay: 0.3, anim: "structure-float-reverse",
-      icon: (
-        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M8 30h32l-4 8H12l-4-8z" />
-          <path d="M20 30V18" />
-          <path d="M20 18l12 6" />
-          <path d="M20 18l-10 8" />
-          <path d="M20 22l10 4" />
-          <path d="M28 30V26" />
-          <path d="M6 40c3-2 6-2 9 0s6 2 9 0 6-2 9 0 6 2 9 0" />
+        <svg viewBox="0 0 48 48" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="24" cy="24" r="16" />
+          <circle cx="24" cy="24" r="12" strokeWidth="1.4" strokeDasharray="2 2" />
+          <text x="24" y="29" textAnchor="middle" fontSize="15" fontFamily="ui-sans-serif, system-ui, sans-serif" fontWeight="700" fill="rgba(255,255,255,0.9)" stroke="none">M</text>
         </svg>
       ),
     },
     // Water pipe / culvert — left of center
     {
-      top: "24%", left: "18%", size: 62, opacity: 0.25, duration: 9, delay: 2, anim: "structure-float",
+      top: "24%", left: "18%", size: 68, opacity: 0.38, duration: 9, delay: 2, anim: "structure-float",
       icon: (
-        <svg viewBox="0 0 40 40" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 40 40" fill="none" stroke="rgba(255,255,255,0.9)" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
           <ellipse cx="8" cy="20" rx="5" ry="8" />
           <path d="M8 12h24" />
           <path d="M8 28h24" />
           <ellipse cx="32" cy="20" rx="5" ry="8" />
-          <path d="M13 16h14M13 20h14M13 24h14" strokeWidth="1.2" strokeDasharray="3 2" />
-        </svg>
-      ),
-    },
-    // Second buoy — left side near water
-    {
-      top: "48%", left: "28%", size: 48, opacity: 0.32, duration: 8, delay: 1.2, anim: "structure-float",
-      icon: (
-        <svg viewBox="0 0 32 32" fill="none" stroke="rgba(225,13,13,0.85)" strokeWidth="1.8" strokeLinecap="round">
-          <path d="M16 6v6" />
-          <circle cx="16" cy="16" r="4" fill="rgba(225,13,13,0.2)" />
-          <path d="M16 20v4" />
-          <path d="M12 26c2-1.5 6-1.5 8 0" />
+          <path d="M13 16h14M13 20h14M13 24h14" strokeWidth="1.4" strokeDasharray="3 2" />
         </svg>
       ),
     },
@@ -501,18 +461,6 @@ export function Hero() {
       {/* ── Content ── */}
       <Container className="relative flex flex-1 flex-col justify-center py-20 sm:py-28 lg:py-40">
         <div className="max-w-4xl">
-          {/* Badge */}
-          <div
-            className="inline-flex items-center rounded-full border border-white/20 bg-white/[0.1] px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm text-white mb-6 sm:mb-8 backdrop-blur-sm"
-            style={{ animation: "fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both" }}
-          >
-            <span
-              className="mr-2.5 inline-block h-1.5 w-1.5 rounded-full bg-primary-light"
-              style={{ animation: "pulse-glow 2s ease-in-out infinite" }}
-            />
-            Leaders in Quality
-          </div>
-
           {/* Company name */}
           <p
             className="text-sm font-semibold uppercase tracking-[0.25em] text-primary-light md:text-base mb-4"
