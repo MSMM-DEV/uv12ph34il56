@@ -1,5 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { revalidateTag } from "next/cache";
+import { revalidateTag, revalidatePath } from "next/cache";
+
+const TAG_TO_PATHS: Record<string, string[]> = {
+  projects: ["/projects", "/"],
+  team: ["/team", "/about"],
+  jobs: ["/careers"],
+  testimonials: ["/"],
+  settings: ["/"],
+  departments: ["/team", "/careers"],
+};
 
 export async function POST(request: NextRequest) {
   const secret = request.headers.get("x-revalidation-secret");
@@ -9,21 +18,25 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = await request.json();
-    const tags: string[] = body.tags || ["projects", "team", "jobs", "testimonials", "settings", "departments"];
+    const body = await request.json().catch(() => ({}));
+    const tags: string[] = body.tags || Object.keys(TAG_TO_PATHS);
 
+    const paths = new Set<string>();
     for (const tag of tags) {
-      revalidateTag(tag, "max");
+      revalidateTag(tag, { expire: 0 });
+      for (const path of TAG_TO_PATHS[tag] || []) paths.add(path);
     }
+    for (const path of paths) revalidatePath(path);
 
     return NextResponse.json({
       revalidated: true,
       tags,
+      paths: Array.from(paths),
       timestamp: Date.now(),
     });
-  } catch {
+  } catch (err) {
     return NextResponse.json(
-      { error: "Failed to revalidate" },
+      { error: "Failed to revalidate", detail: String(err) },
       { status: 500 }
     );
   }
