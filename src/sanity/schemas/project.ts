@@ -94,6 +94,13 @@ export const project = defineType({
     defineField({ name: "isHidden", title: "Hide from Website", type: "boolean", description: "Toggle ON to hide this project from the website", initialValue: false }),
     defineField({ name: "featured", title: "Featured", type: "boolean", initialValue: false }),
     defineField({ name: "displayOrder", title: "Display Order", type: "number", initialValue: 0 }),
+    defineField({
+      name: "orderRank",
+      title: "Order Rank",
+      type: "string",
+      hidden: true,
+      description: "Managed by the drag-to-reorder Studio view. Do not edit manually.",
+    }),
     defineField({ name: "metaTitle", title: "Meta Title", type: "string" }),
     defineField({ name: "metaDescription", title: "Meta Description", type: "text", rows: 2 }),
   ],
