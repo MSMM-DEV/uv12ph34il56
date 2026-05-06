@@ -29,6 +29,8 @@ export const project = defineType({
           "Coastal Restoration",
           "H & H Modeling",
           "Database/GIS Mapping",
+          "Project Management",
+          "Program Management",
         ],
       },
     }),

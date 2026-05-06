@@ -68,15 +68,19 @@ export function TeamMemberCard({ member }: TeamMemberCardProps) {
             )}
           </div>
         )}
-        {Array.isArray(member.specialties) && member.specialties.length > 0 && (
-          <div className="mt-3 flex flex-wrap gap-1">
-            {member.specialties.slice(0, 3).map((spec) => (
-              <Badge key={spec} variant="secondary">
-                {spec}
-              </Badge>
-            ))}
-          </div>
-        )}
+        {(() => {
+          const specs = (member.specialties ?? []).filter((s) => s && s.trim());
+          if (specs.length === 0) return null;
+          return (
+            <div className="mt-3 flex flex-wrap gap-1">
+              {specs.slice(0, 3).map((spec) => (
+                <Badge key={spec} variant="secondary">
+                  {spec}
+                </Badge>
+              ))}
+            </div>
+          );
+        })()}
         <div className="mt-4 flex gap-3">
           {member.email && (
             <a

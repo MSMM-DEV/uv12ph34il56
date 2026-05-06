@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui";
+import { trackEvent } from "@/lib/analytics";
 
 export function ContactForm() {
   const [status, setStatus] = useState<
@@ -38,6 +39,7 @@ export function ContactForm() {
 
       if (res.ok) {
         setStatus("success");
+        trackEvent("generate_lead", { form_subject: data.subject });
         (e.target as HTMLFormElement).reset();
       } else {
         setStatus("error");

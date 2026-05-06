@@ -105,7 +105,7 @@ export function ProjectPagination({ currentPage, totalPages }: ProjectPagination
               className={cn(
                 "flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer",
                 page === currentPage
-                  ? "bg-secondary text-white shadow-sm"
+                  ? "bg-primary text-white shadow-sm"
                   : "text-foreground hover:bg-accent hover:text-primary"
               )}
               aria-label={`Page ${page}`}

@@ -8,7 +8,8 @@ import { ProjectGrid } from "@/components/projects/project-grid";
 import { ProjectPagination } from "@/components/projects/project-pagination";
 import type { Project } from "@/types";
 
-const PROJECTS_PER_PAGE = 10;
+const FIRST_PAGE_COUNT = 11; // 1 hero + 10 grid cards (5 rows of 2)
+const PAGE_COUNT = 10; // 5 rows of 2 (no hero on subsequent pages)
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Projects",
@@ -66,10 +67,14 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
   const projects = await getProjectsData(category);
 
   const totalCount = projects.length;
-  const totalPages = Math.max(1, Math.ceil(totalCount / PROJECTS_PER_PAGE));
+  const totalPages = Math.max(
+    1,
+    totalCount <= FIRST_PAGE_COUNT ? 1 : 1 + Math.ceil((totalCount - FIRST_PAGE_COUNT) / PAGE_COUNT)
+  );
   const currentPage = Math.min(Math.max(1, parseInt(page || "1", 10) || 1), totalPages);
-  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
-  const paginatedProjects = projects.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
+  const startIndex = currentPage === 1 ? 0 : FIRST_PAGE_COUNT + (currentPage - 2) * PAGE_COUNT;
+  const sliceLength = currentPage === 1 ? FIRST_PAGE_COUNT : PAGE_COUNT;
+  const paginatedProjects = projects.slice(startIndex, startIndex + sliceLength);
 
   return (
     <>

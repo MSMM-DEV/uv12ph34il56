@@ -1,11 +1,5 @@
 @import "tailwindcss";
 
-@layer base {
-  p {
-    text-align: justify;
-  }
-}
-
 :root {
   --background: #ffffff;
   --foreground: #1a1a1a;

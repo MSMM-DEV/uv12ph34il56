@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const tags: string[] = body.tags || ["projects", "team", "jobs", "testimonials", "settings"];
+    const tags: string[] = body.tags || ["projects", "team", "jobs", "testimonials", "settings", "departments"];
 
     for (const tag of tags) {
       revalidateTag(tag, "max");

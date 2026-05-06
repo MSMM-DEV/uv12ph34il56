@@ -74,7 +74,7 @@ export function TeamGrid({ members }: TeamGridProps) {
               onClick={() => goToPage(p)}
               className={`h-9 w-9 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
                 p === page
-                  ? "bg-[#e10d0d] text-white shadow-sm"
+                  ? "bg-primary text-white shadow-sm"
                   : "border border-border text-muted hover:bg-gray-50 hover:text-foreground"
               }`}
             >
